@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { InlineScript } from "@/components/InlineScript";
 import { getContent } from "@/content";
 import { isLocale, locales } from "@/lib/i18n";
+import { scrollRestoreScript } from "@/lib/scroll";
 import { getSiteUrl } from "@/lib/site";
 import "../globals.css";
 
@@ -72,7 +73,10 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <head>
         <InlineScript html={themeScript} />
       </head>
-      <body className="bg-bg text-ink font-sans antialiased">{children}</body>
+      <body className="bg-bg text-ink font-sans antialiased">
+        {children}
+        <InlineScript html={scrollRestoreScript} />
+      </body>
     </html>
   );
 }

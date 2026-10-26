@@ -97,9 +97,21 @@ export const timelineIds = [
 ] as const;
 export type TimelineId = (typeof timelineIds)[number];
 
+export type TimelineIcon =
+  | "swords"
+  | "layers"
+  | "gamepad"
+  | "smartphone"
+  | "graduation-cap"
+  | "map"
+  | "flask"
+  | "trophy"
+  | "award"
+  | "sparkles";
+
 type TimelineFacts = {
-  /** Icon name for the milestone (resolved by the timeline component). */
-  icon: string;
+  /** Icon of the milestone (resolved by the timeline component). */
+  icon: TimelineIcon;
   /** Photo path in `public/photos/`, a `[TBD: ...]` slot, or `null` (icon only). */
   photo: string | null;
 };

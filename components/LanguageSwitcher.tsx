@@ -6,6 +6,7 @@ import {
   locales,
   type Locale,
 } from "@/lib/i18n";
+import { saveScrollPosition } from "@/lib/scroll";
 
 type Props = {
   current: Locale;
@@ -22,7 +23,7 @@ function rememberLocale(locale: Locale) {
 
 /**
  * ES / EN selector. Without JavaScript the links go to the top of the other
- * language; with it, the current anchor (`#projects`, ...) is kept and the
+ * language; with it, the reading position is kept and the
  * choice is remembered in a functional cookie read by `proxy.ts`.
  */
 export function LanguageSwitcher({ current, label }: Props) {
@@ -32,10 +33,14 @@ export function LanguageSwitcher({ current, label }: Props) {
   ) {
     event.preventDefault();
     rememberLocale(target);
+    // The saved reading position replaces the anchor; without storage fall back to it.
+    const keptPosition = saveScrollPosition();
     // Full page load on purpose: each language has its own root layout, so the
     // document is rebuilt anyway, and a real load re-runs the theme script.
     // eslint-disable-next-line @next/next/no-location-assign-relative-destination
-    window.location.assign(`/${target}${window.location.hash}`);
+    window.location.assign(
+      `/${target}${keptPosition ? "" : window.location.hash}`,
+    );
   }
 
   return (

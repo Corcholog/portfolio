@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
+import { AboutStory, Education } from "@/components/AboutStory";
 import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Timeline } from "@/components/Timeline";
 import { getContent } from "@/content";
 import { projectIds } from "@/content/shared";
 import { isLocale } from "@/lib/i18n";
@@ -41,7 +43,19 @@ export default async function HomePage({ params }: PageProps) {
             ))}
           </div>
         </Section>
-        <Section id="about" title={section.about} />
+        <Section id="about" title={section.about}>
+          <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="lg:col-start-1 lg:row-start-1">
+              <AboutStory about={content.about} />
+            </div>
+            <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+              <Timeline items={content.timeline} />
+            </div>
+            <div className="lg:col-start-1 lg:row-start-2">
+              <Education education={content.education} />
+            </div>
+          </div>
+        </Section>
         <Section id="now" title={section.now} />
         <Section id="other" title={section.other} />
         <Section id="contact" title={section.contact} />
