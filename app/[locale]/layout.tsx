@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { InlineScript } from "@/components/InlineScript";
@@ -53,8 +53,25 @@ export async function generateMetadata({
       canonical: `/${locale}`,
       languages: { es: "/es", en: "/en", "x-default": "/" },
     },
+    openGraph: {
+      type: "website",
+      siteName: meta.name,
+      title: `${meta.name} · ${meta.roleLine}`,
+      description: meta.tagline,
+      url: `/${locale}`,
+      locale: locale === "es" ? "es_AR" : "en_US",
+      alternateLocale: locale === "es" ? ["en_US"] : ["es_AR"],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf6ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#17140f" },
+  ],
+};
 
 /** Applies the saved theme before first paint so there is no flash of the wrong one. */
 const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;

@@ -65,7 +65,7 @@ export const es = {
         "Lo que leo y miro (artículos, videos) casi nunca vuelve a lo que escribo.",
       bullets: [
         "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault.",
-        "Retrieval en dos etapas: pre-filtro con pgvector y evaluación con un LLM con Structured Outputs; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local).",
+        "Retrieval en dos etapas: pre-filtro con pgvector y evaluación con un LLM con Structured Outputs; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
         "Telemetría de costo por token y latencia; tests de integración con Testcontainers.",
       ],
@@ -214,7 +214,29 @@ export const es = {
     },
     rekindle: {
       title: "Rekindle",
+      intro:
+        "Asistente local-first que conecta lo que leo con lo que escribo: compara artículos y videos contra los proyectos y notas de mi vault de Obsidian y propone acciones.",
       text: "Sigo sumando técnicas de AI Engineering, como chunking basado en la estructura de los documentos.",
+      seeProject: "Ver el proyecto",
+      evalTitle: "¿Qué modelo encuentra las conexiones?",
+      evalCaption:
+        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
+      columns: {
+        model: "Modelo",
+        precision: "Acierta cuando dice «accionable»",
+        found: "Conexiones encontradas",
+        latency: "Latencia mediana",
+      },
+      found: "{found} de {total} (+{extra} extra)",
+      models: {
+        deepseekFast: {
+          name: "DeepSeek Flash",
+          note: "por defecto, sin thinking",
+        },
+        deepseekThinking: { name: "DeepSeek Flash", note: "con thinking" },
+        geminiFlashLite: { name: "Gemini 3.1 Flash Lite", note: "en la nube" },
+        qwenLocal: { name: "Qwen 2.5 7B", note: "corre en tu máquina" },
+      },
     },
   },
   other: {

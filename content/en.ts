@@ -65,7 +65,7 @@ export const en = {
         "What I read and watch (articles, videos) rarely makes it back into what I write.",
       bullets: [
         "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault.",
-        "Two-stage retrieval: pgvector pre-filter plus LLM evaluation with Structured Outputs; provider chain with fallback (DeepSeek, Gemini, local Ollama).",
+        "Two-stage retrieval: pgvector pre-filter plus LLM evaluation with Structured Outputs; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
         "Per-token cost and latency telemetry; integration tests with Testcontainers.",
       ],
@@ -213,7 +213,26 @@ export const en = {
     },
     rekindle: {
       title: "Rekindle",
+      intro:
+        "A local-first assistant that connects what I read with what I write: it compares articles and videos against the projects and notes in my Obsidian vault and proposes actions.",
       text: "I keep adding AI engineering techniques, such as document-structure-based chunking.",
+      seeProject: "See the project",
+      evalTitle: "Which model finds the connections?",
+      evalCaption:
+        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed. One labeler and a small dataset, so small gaps are noise.",
+      columns: {
+        model: "Model",
+        precision: "Right when it says “actionable”",
+        found: "Connections found",
+        latency: "Median latency",
+      },
+      found: "{found} of {total} (+{extra} extra)",
+      models: {
+        deepseekFast: { name: "DeepSeek Flash", note: "default, thinking off" },
+        deepseekThinking: { name: "DeepSeek Flash", note: "thinking on" },
+        geminiFlashLite: { name: "Gemini 3.1 Flash Lite", note: "cloud" },
+        qwenLocal: { name: "Qwen 2.5 7B", note: "runs on your machine" },
+      },
     },
   },
   other: {

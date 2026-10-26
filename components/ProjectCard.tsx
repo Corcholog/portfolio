@@ -24,7 +24,10 @@ export function ProjectCard({ id, project, ui }: Props) {
   const result = visible(project.result);
 
   return (
-    <article className="group border-line bg-card reveal border-l-line-strong hover:border-l-accent focus-within:border-l-accent rounded-2xl border border-l-4 motion-safe:transition-colors">
+    <article
+      id={id}
+      className="group border-line bg-card reveal border-l-line-strong hover:border-l-accent focus-within:border-l-accent scroll-mt-24 rounded-2xl border border-l-4 motion-safe:transition-colors"
+    >
       <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-9">
         {image && (
           <div className="border-line self-start overflow-hidden rounded-lg border">

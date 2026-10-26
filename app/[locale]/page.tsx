@@ -1,13 +1,18 @@
 import { notFound } from "next/navigation";
 import { AboutStory, Education } from "@/components/AboutStory";
+import { ContactSection } from "@/components/ContactSection";
 import { Hero } from "@/components/Hero";
+import { NowSection } from "@/components/NowSection";
+import { OtherWork } from "@/components/OtherWork";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Timeline } from "@/components/Timeline";
 import { getContent } from "@/content";
-import { projectIds } from "@/content/shared";
+import { identity, projectIds } from "@/content/shared";
 import { isLocale } from "@/lib/i18n";
+import { getSiteUrl } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -20,8 +25,21 @@ export default async function HomePage({ params }: PageProps) {
   const content = getContent(locale);
   const { section, ui } = content;
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: identity.name,
+    jobTitle: content.meta.roleLine,
+    url: `${getSiteUrl()}/${locale}`,
+    sameAs: [identity.linkedin, identity.github],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <a
         href="#main"
         className="bg-accent text-on-accent sr-only z-50 rounded-full text-sm font-medium focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:px-4 focus:py-2"
@@ -56,10 +74,17 @@ export default async function HomePage({ params }: PageProps) {
             </div>
           </div>
         </Section>
-        <Section id="now" title={section.now} />
-        <Section id="other" title={section.other} />
-        <Section id="contact" title={section.contact} />
+        <Section id="now" title={section.now}>
+          <NowSection locale={locale} content={content} />
+        </Section>
+        <Section id="other" title={section.other}>
+          <OtherWork other={content.other} />
+        </Section>
+        <Section id="contact" title={section.contact}>
+          <ContactSection locale={locale} content={content} />
+        </Section>
       </main>
+      <SiteFooter locale={locale} content={content} />
     </>
   );
 }

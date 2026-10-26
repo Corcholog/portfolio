@@ -145,3 +145,38 @@ export const mmm = {
   /** Translation progress. Update by hand. */
   progress: { done: 12537, total: 33135, asOf: "2026-10-26" },
 } as const;
+
+export const modelIds = [
+  "deepseekFast",
+  "deepseekThinking",
+  "geminiFlashLite",
+  "qwenLocal",
+] as const;
+export type ModelId = (typeof modelIds)[number];
+
+/**
+ * Rekindle model comparison on the hand-labeled set (read from the owner's chart,
+ * 2026-10-26). `precision` is how often the model was right when it said
+ * "actionable"; `found` counts real connections found out of `connections`;
+ * `extra` are additional links it proposed.
+ */
+export const rekindleEval = {
+  pairs: 376,
+  connections: 56,
+  models: {
+    deepseekFast: { precision: 1, found: 46, extra: 19, latency: 2.3 },
+    deepseekThinking: { precision: 0.79, found: 49, extra: 26, latency: 4.1 },
+    geminiFlashLite: { precision: 0.64, found: 49, extra: 25, latency: 4.4 },
+    qwenLocal: { precision: 1, found: 32, extra: 9, latency: 3.8 },
+  },
+  /** The model Rekindle uses by default (highlighted in the table). */
+  defaultModel: "deepseekFast",
+} as const satisfies {
+  pairs: number;
+  connections: number;
+  models: Record<
+    ModelId,
+    { precision: number; found: number; extra: number; latency: number }
+  >;
+  defaultModel: ModelId;
+};
