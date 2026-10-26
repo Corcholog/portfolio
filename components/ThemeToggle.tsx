@@ -46,7 +46,7 @@ export function ThemeToggle({ label }: { label: string }) {
       type="button"
       onClick={toggle}
       aria-label={label}
-      className="text-muted hover:text-ink inline-flex size-9 items-center justify-center rounded-full"
+      className="text-muted hover:text-ink inline-flex size-9 items-center justify-center rounded-full max-[360px]:size-8"
     >
       <Moon aria-hidden className="icon-moon size-[18px]" />
       <Sun aria-hidden className="icon-sun size-[18px]" />

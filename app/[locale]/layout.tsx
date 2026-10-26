@@ -1,31 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { InlineScript } from "@/components/InlineScript";
 import { getContent } from "@/content";
+import { fontVariables } from "@/lib/fonts";
 import { isLocale, locales } from "@/lib/i18n";
 import { scrollRestoreScript } from "@/lib/scroll";
 import { getSiteUrl } from "@/lib/site";
+import { themeScript } from "@/lib/theme";
 import "../globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-  axes: ["opsz"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -47,8 +29,8 @@ export async function generateMetadata({
   const { meta } = getContent(locale);
   return {
     metadataBase: new URL(getSiteUrl()),
-    title: `${meta.name} · ${meta.roleLine}`,
-    description: meta.tagline,
+    title: meta.pageTitle,
+    description: meta.description,
     alternates: {
       canonical: `/${locale}`,
       languages: { es: "/es", en: "/en", "x-default": "/" },
@@ -56,8 +38,8 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: meta.name,
-      title: `${meta.name} · ${meta.roleLine}`,
-      description: meta.tagline,
+      title: meta.pageTitle,
+      description: meta.description,
       url: `/${locale}`,
       locale: locale === "es" ? "es_AR" : "en_US",
       alternateLocale: locale === "es" ? ["en_US"] : ["es_AR"],
@@ -73,9 +55,6 @@ export const viewport: Viewport = {
   ],
 };
 
-/** Applies the saved theme before first paint so there is no flash of the wrong one. */
-const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
-
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -85,7 +64,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       lang={locale}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
+      className={fontVariables}
     >
       <head>
         <InlineScript html={themeScript} />

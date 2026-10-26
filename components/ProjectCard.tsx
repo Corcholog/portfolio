@@ -88,6 +88,7 @@ export function ProjectCard({ id, project, ui }: Props) {
                   <ExternalLink
                     href={demo}
                     newTabLabel={ui.newTab}
+                    context={project.title}
                     className={linkClass}
                   >
                     {ui.demo}
@@ -99,6 +100,7 @@ export function ProjectCard({ id, project, ui }: Props) {
                   <ExternalLink
                     href={repo}
                     newTabLabel={ui.newTab}
+                    context={project.title}
                     className={linkClass}
                   >
                     {ui.repo}
@@ -110,6 +112,7 @@ export function ProjectCard({ id, project, ui }: Props) {
                   <ExternalLink
                     href={pdf}
                     newTabLabel={ui.newTab}
+                    context={project.title}
                     className={linkClass}
                   >
                     {ui.slides}

@@ -3,7 +3,7 @@ import type { ModelId, OtherId, ProjectId, TimelineId } from "./shared";
 /**
  * Shape of the site copy. Both `content/es.ts` and `content/en.ts` must satisfy
  * it, so a key missing in one language fails `npm run typecheck`.
- * `npm run check:content` also compares list lengths and lists `[TBD: ...]`.
+ * `npm run check:content` also compares list lengths and lists any placeholders left.
  */
 
 export type ProjectContent = {
@@ -37,6 +37,10 @@ export type Content = {
     name: string;
     roleLine: string;
     tagline: string;
+    /** Browser tab and search result title (keep under about 60 characters). */
+    pageTitle: string;
+    /** Search result and link-preview description (about 120-155 characters). */
+    description: string;
   };
   nav: {
     label: string;
@@ -135,5 +139,10 @@ export type Content = {
   };
   contact: {
     line: string;
+  };
+  notFound: {
+    title: string;
+    text: string;
+    home: string;
   };
 };

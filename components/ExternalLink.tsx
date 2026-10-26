@@ -4,6 +4,8 @@ type Props = {
   href: string;
   /** Spoken to screen readers, e.g. "opens in a new tab". */
   newTabLabel: string;
+  /** What the link is about, spoken to screen readers (e.g. the project name). */
+  context?: string;
   className?: string;
   children: React.ReactNode;
 };
@@ -12,6 +14,7 @@ type Props = {
 export function ExternalLink({
   href,
   newTabLabel,
+  context,
   className,
   children,
 }: Props) {
@@ -24,7 +27,9 @@ export function ExternalLink({
     >
       {children}
       <ArrowUpRight aria-hidden className="size-4 shrink-0" />
-      <span className="sr-only"> ({newTabLabel})</span>
+      <span className="sr-only">
+        {context ? ` (${context}, ${newTabLabel})` : ` (${newTabLabel})`}
+      </span>
     </a>
   );
 }

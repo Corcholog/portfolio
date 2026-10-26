@@ -34,6 +34,7 @@ export function NowSection({ locale, content }: Props) {
               <ExternalLink
                 href={mmm.repo}
                 newTabLabel={ui.newTab}
+                context={mmm.name}
                 className="border-line-strong hover:border-ink inline-flex min-h-10 items-center gap-1 rounded-full border px-4 text-sm font-medium"
               >
                 {ui.repo}

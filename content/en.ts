@@ -6,6 +6,9 @@ export const en = {
     roleLine: "Systems Engineer · Full stack + applied Machine Learning",
     tagline:
       "I build production web apps and integrate LLMs, measuring their quality.",
+    pageTitle: "Giorgio Iván Loguercio — Systems Engineer, Full stack",
+    description:
+      "Systems Engineer (UNICEN) with a full stack and applied machine learning profile. I build production web apps and integrate LLMs, measuring their quality.",
   },
   nav: {
     label: "Main",
@@ -107,13 +110,13 @@ export const en = {
       when: "Age 6–7",
       title: "Diablo II",
       line: "My first PC, and English learned by playing.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     magic: {
       when: "Age 8",
       title: "Magic: The Gathering",
       line: "The game's stack, years before the call stack.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     mugen: {
       when: "Age 9–12",
@@ -131,7 +134,7 @@ export const en = {
       when: "2021",
       title: "UNICEN",
       line: "I start Systems Engineering in Tandil.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     citylab: {
       when: "2023",
@@ -149,13 +152,13 @@ export const en = {
       when: "June 2026",
       title: "Systems Engineer",
       line: "I defend my thesis and graduate.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     lide2: {
       when: "August 2026",
       title: "LIDE 2",
       line: "I build the tournament site; it becomes official.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     esports: {
       when: "2026",
@@ -258,5 +261,10 @@ export const en = {
   },
   contact: {
     line: "Hiring or have a project in mind? Get in touch.",
+  },
+  notFound: {
+    title: "Page not found",
+    text: "That address doesn't exist or has moved.",
+    home: "Back to home",
   },
 } satisfies Content;

@@ -6,6 +6,9 @@ export const es = {
     roleLine: "Ingeniero en Sistemas · Full stack + Machine Learning aplicado",
     tagline:
       "Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
+    pageTitle: "Giorgio Iván Loguercio — Ingeniero en Sistemas, Full stack",
+    description:
+      "Ingeniero en Sistemas (UNICEN) con perfil full stack y Machine Learning aplicado. Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
   },
   nav: {
     label: "Principal",
@@ -107,13 +110,13 @@ export const es = {
       when: "6–7 años",
       title: "Diablo II",
       line: "Mi primera PC y mi inglés, aprendido jugando.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     magic: {
       when: "8 años",
       title: "Magic: The Gathering",
       line: "La pila del juego, años antes de la pila de ejecución.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     mugen: {
       when: "9–12 años",
@@ -131,7 +134,7 @@ export const es = {
       when: "2021",
       title: "UNICEN",
       line: "Empiezo Ingeniería de Sistemas en Tandil.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     citylab: {
       when: "2023",
@@ -149,13 +152,13 @@ export const es = {
       when: "Junio 2026",
       title: "Ingeniero en Sistemas",
       line: "Defiendo la tesis y me recibo.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     lide2: {
       when: "Agosto 2026",
       title: "LIDE 2",
       line: "Construyo el sitio del torneo, que se vuelve oficial.",
-      photoAlt: "[TBD: alt text]",
+      photoAlt: null,
     },
     esports: {
       when: "2026",
@@ -262,5 +265,10 @@ export const es = {
   },
   contact: {
     line: "¿Tenés una búsqueda o un proyecto? Escribime.",
+  },
+  notFound: {
+    title: "Página no encontrada",
+    text: "Esa dirección no existe o cambió de lugar.",
+    home: "Ir al inicio",
   },
 } satisfies Content;

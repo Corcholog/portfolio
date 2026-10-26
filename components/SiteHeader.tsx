@@ -22,7 +22,7 @@ export function SiteHeader({ locale, content }: Props) {
       <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-3 px-4 py-1 sm:gap-x-6 sm:px-6">
         <a
           href="#top"
-          className="font-display text-base font-medium sm:text-lg"
+          className="font-display inline-flex min-h-9 items-center text-[15px] font-medium min-[361px]:text-base sm:text-lg"
         >
           {meta.name}
         </a>
@@ -30,12 +30,12 @@ export function SiteHeader({ locale, content }: Props) {
           aria-label={nav.label}
           className="order-last w-full sm:order-none sm:w-auto sm:flex-1"
         >
-          <ul className="flex gap-x-1 sm:gap-x-2">
+          <ul className="flex gap-x-0.5 sm:gap-x-2">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-muted hover:text-ink inline-flex min-h-9 items-center px-2 text-sm underline-offset-4 hover:underline"
+                  className="text-muted hover:text-ink inline-flex min-h-9 items-center px-1.5 text-sm whitespace-nowrap underline-offset-4 hover:underline sm:px-2"
                 >
                   {link.label}
                 </a>

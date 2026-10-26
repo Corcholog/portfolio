@@ -112,20 +112,20 @@ export type TimelineIcon =
 type TimelineFacts = {
   /** Icon of the milestone (resolved by the timeline component). */
   icon: TimelineIcon;
-  /** Photo path in `public/photos/`, a `[TBD: ...]` slot, or `null` (icon only). */
+  /** Photo path in `public/photos/`, or `null` (icon only). A photo needs `photoAlt` in both languages. */
   photo: string | null;
 };
 
 export const timelineFacts: Record<TimelineId, TimelineFacts> = {
-  diablo: { icon: "swords", photo: "[TBD: child turning on the PC]" },
-  magic: { icon: "layers", photo: "[TBD: optional photo]" },
+  diablo: { icon: "swords", photo: null },
+  magic: { icon: "layers", photo: null },
   mugen: { icon: "gamepad", photo: null },
   firstCode: { icon: "smartphone", photo: null },
-  unicen: { icon: "graduation-cap", photo: "[TBD: optional photo]" },
+  unicen: { icon: "graduation-cap", photo: null },
   citylab: { icon: "map", photo: null },
   thesisItba: { icon: "flask", photo: null },
-  graduation: { icon: "graduation-cap", photo: "[TBD: thesis defense]" },
-  lide2: { icon: "trophy", photo: "[TBD: optional, tournament]" },
+  graduation: { icon: "graduation-cap", photo: null },
+  lide2: { icon: "trophy", photo: null },
   esports: { icon: "award", photo: null },
   today: { icon: "sparkles", photo: null },
 };
@@ -141,6 +141,7 @@ export const otherFacts: Record<OtherId, { stack: readonly string[] }> = {
 };
 
 export const mmm = {
+  name: "My Merry May",
   repo: "https://github.com/Corcholog/mmm-spanish-patch",
   /** Translation progress. Update by hand. */
   progress: { done: 12537, total: 33135, asOf: "2026-10-26" },
@@ -155,8 +156,8 @@ export const modelIds = [
 export type ModelId = (typeof modelIds)[number];
 
 /**
- * Rekindle model comparison on the hand-labeled set (read from the owner's chart,
- * 2026-10-26). `precision` is how often the model was right when it said
+ * Rekindle model comparison on a hand-labeled set of article x project pairs
+ * (figures from the project's own evaluation chart). `precision` is how often the model was right when it said
  * "actionable"; `found` counts real connections found out of `connections`;
  * `extra` are additional links it proposed.
  */
