@@ -3,7 +3,7 @@ import { en } from "./en";
 import { es } from "./es";
 import type { Content } from "./types";
 
-export type { Content };
+export type { Content, ProjectContent } from "./types";
 
 const dictionaries: Record<Locale, Content> = { es, en };
 

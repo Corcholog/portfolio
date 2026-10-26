@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import {
   LOCALE_COOKIE,
   LOCALE_COOKIE_MAX_AGE,
@@ -27,20 +26,21 @@ function rememberLocale(locale: Locale) {
  * choice is remembered in a functional cookie read by `proxy.ts`.
  */
 export function LanguageSwitcher({ current, label }: Props) {
-  const router = useRouter();
-
   function switchTo(
     target: Locale,
     event: React.MouseEvent<HTMLAnchorElement>,
   ) {
     event.preventDefault();
     rememberLocale(target);
-    router.push(`/${target}${window.location.hash}`);
+    // Full page load on purpose: each language has its own root layout, so the
+    // document is rebuilt anyway, and a real load re-runs the theme script.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.assign(`/${target}${window.location.hash}`);
   }
 
   return (
     <nav aria-label={label}>
-      <ul className="flex gap-3">
+      <ul className="flex items-center">
         {locales.map((locale) => (
           <li key={locale}>
             <a
@@ -49,7 +49,7 @@ export function LanguageSwitcher({ current, label }: Props) {
               hrefLang={locale}
               aria-current={locale === current ? "true" : undefined}
               onClick={(event) => switchTo(locale, event)}
-              className="font-mono text-sm uppercase underline-offset-4 aria-[current=true]:font-bold aria-[current=true]:underline"
+              className="text-muted hover:text-ink aria-[current=true]:text-accent inline-flex min-h-9 min-w-9 items-center justify-center font-mono text-sm uppercase underline-offset-4 aria-[current=true]:font-medium aria-[current=true]:underline"
             >
               {locale}
             </a>

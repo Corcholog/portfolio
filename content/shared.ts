@@ -47,7 +47,7 @@ export const projectFacts: Record<ProjectId, ProjectFacts> = {
     repo: "https://github.com/Corcholog/lide2",
     demo: "https://lide2.vercel.app/",
     pdf: null,
-    image: { src: "/projects/lide2-stats.webp", width: 800, height: 609 },
+    image: { src: "/projects/lide2-home.webp", width: 1168, height: 905 },
   },
   rekindle: {
     stack: [

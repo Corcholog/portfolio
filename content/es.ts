@@ -5,7 +5,7 @@ export const es = {
     name: "Giorgio Iván Loguercio",
     roleLine: "Ingeniero en Sistemas · Full stack + Machine Learning aplicado",
     tagline:
-      "Empecé armando mi propio juego de peleas; hoy construyo apps web y sistemas con IA.",
+      "Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
   },
   nav: {
     label: "Principal",
@@ -30,6 +30,8 @@ export const es = {
     slides: "Ver defensa (PDF)",
     updated: "Actualizado",
     builtWith: "Hecho con Next.js",
+    newTab: "se abre en una pestaña nueva",
+    skip: "Saltar al contenido",
   },
   hero: {
     location: "Necochea, Argentina · Disponible para trabajo remoto",
@@ -50,9 +52,10 @@ export const es = {
         "Parser de replays de partidas y estadísticas como las de sitios profesionales (por ejemplo gol.gg), útiles para que los jugadores analicen su juego.",
         "En producción en Vercel, con Supabase y Row-Level Security.",
       ],
+      resultLabel: "Alcance",
       result: "113 jugadores, 20 equipos y 13 universidades.",
       imageAlt:
-        "Tabla de campeones de LIDE 2 con picks, porcentaje de partidas jugadas, winrate, KDA y daño por minuto, calculados a partir de las partidas del torneo.",
+        "Portada de LIDE 2: «Un país. Una red. Un campeón.», Liga Interuniversitaria de Deportes Electrónicos, con el equipo campeón y las cifras del torneo: 113 jugadores, 20 equipos y 13 universidades.",
     },
     rekindle: {
       title: "Rekindle",
@@ -66,6 +69,7 @@ export const es = {
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
         "Telemetría de costo por token y latencia; tests de integración con Testcontainers.",
       ],
+      resultLabel: "Resultado",
       result:
         "En 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto encontró 46 de las 56 conexiones y acertó el 100 % de las veces que dijo «accionable», con una latencia mediana de 2,3 s (un solo etiquetador, dataset chico).",
       imageAlt:
@@ -83,6 +87,7 @@ export const es = {
         "Estudio comparativo de estimadores de pose humana y arquitecturas de Deep Learning (CNN-LSTM, TCN-Transformer, Transformer).",
         "Pipelines automatizados de experimentación y benchmarking computacional.",
       ],
+      resultLabel: "Hallazgo",
       result:
         "La estimación de pose domina el tiempo de detección de una caída: YOLOv8-pose fue el estimador más rápido en todos los datasets y OpenPose el más lento.",
       imageAlt:

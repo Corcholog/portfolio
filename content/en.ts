@@ -5,7 +5,7 @@ export const en = {
     name: "Giorgio Iván Loguercio",
     roleLine: "Systems Engineer · Full stack + applied Machine Learning",
     tagline:
-      "I started by building my own fighting game; today I build web apps and AI systems.",
+      "I build production web apps and integrate LLMs, measuring their quality.",
   },
   nav: {
     label: "Main",
@@ -30,6 +30,8 @@ export const en = {
     slides: "Defense slides (PDF)",
     updated: "Updated",
     builtWith: "Built with Next.js",
+    newTab: "opens in a new tab",
+    skip: "Skip to content",
   },
   hero: {
     location: "Necochea, Argentina · Open to remote work",
@@ -50,9 +52,10 @@ export const en = {
         "Match replay parser and statistics like those on professional sites (e.g. gol.gg), useful for players to analyse their play.",
         "In production on Vercel, with Supabase and Row-Level Security.",
       ],
+      resultLabel: "Scope",
       result: "113 players, 20 teams and 13 universities.",
       imageAlt:
-        "LIDE 2 champion table showing picks, pick rate, win rate, KDA and damage per minute, computed from the tournament's matches.",
+        "LIDE 2 home page: “Un país. Una red. Un campeón.”, Liga Interuniversitaria de Deportes Electrónicos, with the champion team and the tournament figures: 113 players, 20 teams and 13 universities. The page is in Spanish.",
     },
     rekindle: {
       title: "Rekindle",
@@ -66,6 +69,7 @@ export const en = {
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
         "Per-token cost and latency telemetry; integration tests with Testcontainers.",
       ],
+      resultLabel: "Result",
       result:
         "On 376 hand-labeled article × project pairs, the default model found 46 of the 56 connections and was right 100% of the time it said “actionable”, with a 2.3 s median latency (one labeler, small dataset).",
       imageAlt:
@@ -83,6 +87,7 @@ export const en = {
         "Comparative study of human pose estimators and Deep Learning architectures (CNN-LSTM, TCN-Transformer, Transformer).",
         "Automated experimentation and computational benchmarking pipelines.",
       ],
+      resultLabel: "Finding",
       result:
         "Pose estimation dominates the time to detect a fall: YOLOv8-pose was the fastest estimator on every dataset and OpenPose the slowest.",
       imageAlt:

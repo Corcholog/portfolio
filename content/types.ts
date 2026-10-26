@@ -13,6 +13,8 @@ export type ProjectContent = {
   dates: string;
   problem: string;
   bullets: string[];
+  /** Label of the highlighted line: "Result", "Finding"... */
+  resultLabel: string;
   result: string;
   imageAlt: string;
 };
@@ -63,6 +65,8 @@ export type Content = {
     slides: string;
     updated: string;
     builtWith: string;
+    newTab: string;
+    skip: string;
   };
   hero: {
     location: string;
