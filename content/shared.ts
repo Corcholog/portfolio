@@ -31,7 +31,8 @@ type ProjectFacts = {
   demo: string | null;
   /** Public PDF with more detail (thesis defense slides). */
   pdf: string | null;
-  image: { src: string; width: number; height: number };
+  /** Card image, or `null` for a card without one. */
+  image: { src: string; width: number; height: number } | null;
 };
 
 export const projectFacts: Record<ProjectId, ProjectFacts> = {
@@ -54,11 +55,13 @@ export const projectFacts: Record<ProjectId, ProjectFacts> = {
       "TypeScript",
       "Node.js",
       "Fastify",
+      "React + Vite",
       "PostgreSQL + pgvector",
       "Drizzle ORM",
       "pg-boss",
       "Ollama (bge-m3)",
       "Gemini API",
+      "DeepSeek API",
       "Docker",
       "Vitest",
       "GitHub Actions",
@@ -67,7 +70,7 @@ export const projectFacts: Record<ProjectId, ProjectFacts> = {
     repo: null,
     demo: null,
     pdf: null,
-    image: { src: "/projects/rekindle-eval.webp", width: 800, height: 666 },
+    image: null,
   },
   thesis: {
     stack: ["Python", "TensorFlow", "PyTorch"],
@@ -148,6 +151,7 @@ export const mmm = {
 } as const;
 
 export const modelIds = [
+  "currentDefault",
   "deepseekFast",
   "deepseekThinking",
   "geminiFlashLite",
@@ -156,22 +160,25 @@ export const modelIds = [
 export type ModelId = (typeof modelIds)[number];
 
 /**
- * Rekindle model comparison on a hand-labeled set of article x project pairs
- * (figures from the project's own evaluation chart). `precision` is how often the model was right when it said
- * "actionable"; `found` counts real connections found out of `connections`;
- * `extra` are additional links it proposed.
+ * Rekindle model comparison on a hand-labeled set of article x project pairs.
+ * `currentDefault` is the default model since 2026-10-23 (it reasons before the
+ * verdict); the other four are the 2026-10-19 runs with the earlier prompt.
+ * `precision` is how often the model was right when it said "actionable"; `found`
+ * counts real connections found out of `connections`; `extra` are additional
+ * links it proposed. Source: the project's evaluation reports.
  */
 export const rekindleEval = {
   pairs: 376,
   connections: 56,
   models: {
+    currentDefault: { precision: 0.95, found: 35, extra: 4, latency: 1.8 },
     deepseekFast: { precision: 1, found: 46, extra: 19, latency: 2.3 },
     deepseekThinking: { precision: 0.79, found: 49, extra: 26, latency: 4.1 },
     geminiFlashLite: { precision: 0.64, found: 49, extra: 25, latency: 4.4 },
     qwenLocal: { precision: 1, found: 32, extra: 9, latency: 3.8 },
   },
   /** The model Rekindle uses by default (highlighted in the table). */
-  defaultModel: "deepseekFast",
+  defaultModel: "currentDefault",
 } as const satisfies {
   pairs: number;
   connections: number;

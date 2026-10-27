@@ -16,7 +16,8 @@ export type ProjectContent = {
   /** Label of the highlighted line: "Result", "Finding"... */
   resultLabel: string;
   result: string;
-  imageAlt: string;
+  /** Alt text of the card image, `null` when the card has none. */
+  imageAlt: string | null;
 };
 
 export type TimelineContent = {

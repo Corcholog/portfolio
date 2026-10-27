@@ -67,16 +67,15 @@ export const en = {
       problem:
         "What I read and watch (articles, videos) rarely makes it back into what I write.",
       bullets: [
-        "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault.",
-        "Two-stage retrieval: pgvector pre-filter plus LLM evaluation with Structured Outputs; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
+        "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault, and with no cloud keys everything runs locally.",
+        "Two-stage retrieval: a pgvector pre-filter (the 3 closest projects) plus an LLM evaluation that answers with schema-validated JSON; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
-        "Per-token cost and latency telemetry; integration tests with Testcontainers.",
+        "Per-token cost and latency telemetry; 426 tests, more than half of them integration tests with Testcontainers.",
       ],
       resultLabel: "Result",
       result:
-        "On 376 hand-labeled article × project pairs, the default model found 46 of the 56 connections and was right 100% of the time it said “actionable”, with a 2.3 s median latency (one labeler, small dataset).",
-      imageAlt:
-        "Rekindle chart comparing four models on 376 hand-labeled article × project pairs. DeepSeek Flash, the default, found 46 of 56 connections, was right 100% of the time it said “actionable” and had a 2.3 s median latency.",
+        "On 376 hand-labeled article × project pairs, the default model is right 95% of the time it says “actionable” and finds 35 of the 56 connections, with 4 extra (one labeler; how useful the suggestions are is not measured).",
+      imageAlt: null,
     },
     thesis: {
       title: "Thesis — Automatic fall detection",
@@ -218,11 +217,11 @@ export const en = {
       title: "Rekindle",
       intro:
         "A local-first assistant that connects what I read with what I write: it compares articles and videos against the projects and notes in my Obsidian vault and proposes actions.",
-      text: "I keep adding AI engineering techniques, such as document-structure-based chunking.",
+      text: "I measure it against my own hand-labeled set instead of trusting demos. Lately I've been splitting long notes by headings and testing whether making the model reason before its verdict helps: extra connections dropped from 22 to 4, at some cost in recall.",
       seeProject: "See the project",
       evalTitle: "Which model finds the connections?",
       evalCaption:
-        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed. One labeler and a small dataset, so small gaps are noise.",
+        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23); the others use an earlier prompt (2026-10-19). What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
       columns: {
         model: "Model",
         precision: "Right when it says “actionable”",
@@ -231,10 +230,26 @@ export const en = {
       },
       found: "{found} of {total} (+{extra} extra)",
       models: {
-        deepseekFast: { name: "DeepSeek Flash", note: "default, thinking off" },
-        deepseekThinking: { name: "DeepSeek Flash", note: "thinking on" },
-        geminiFlashLite: { name: "Gemini 3.1 Flash Lite", note: "cloud" },
-        qwenLocal: { name: "Qwen 2.5 7B", note: "runs on your machine" },
+        currentDefault: {
+          name: "DeepSeek Flash",
+          note: "default now, reasons before the verdict (2026-10-23)",
+        },
+        deepseekFast: {
+          name: "DeepSeek Flash",
+          note: "former default, thinking off (2026-10-19)",
+        },
+        deepseekThinking: {
+          name: "DeepSeek Flash",
+          note: "thinking on (2026-10-19)",
+        },
+        geminiFlashLite: {
+          name: "Gemini 3.1 Flash Lite",
+          note: "cloud (2026-10-19)",
+        },
+        qwenLocal: {
+          name: "Qwen 2.5 7B",
+          note: "runs on your machine (2026-10-19)",
+        },
       },
     },
   },

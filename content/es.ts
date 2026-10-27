@@ -67,16 +67,15 @@ export const es = {
       problem:
         "Lo que leo y miro (artículos, videos) casi nunca vuelve a lo que escribo.",
       bullets: [
-        "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault.",
-        "Retrieval en dos etapas: pre-filtro con pgvector y evaluación con un LLM con Structured Outputs; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
+        "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault, y sin claves de nube todo corre en local.",
+        "Retrieval en dos etapas: pre-filtro con pgvector (los 3 proyectos más cercanos) y evaluación con un LLM que responde con JSON validado contra un schema; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
-        "Telemetría de costo por token y latencia; tests de integración con Testcontainers.",
+        "Telemetría de costo por token y latencia; 426 tests, más de la mitad de integración con Testcontainers.",
       ],
       resultLabel: "Resultado",
       result:
-        "En 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto encontró 46 de las 56 conexiones y acertó el 100 % de las veces que dijo «accionable», con una latencia mediana de 2,3 s (un solo etiquetador, dataset chico).",
-      imageAlt:
-        "Gráfico de Rekindle que compara cuatro modelos sobre 376 pares artículo × proyecto etiquetados a mano. DeepSeek Flash, el modelo por defecto, encontró 46 de 56 conexiones, acertó el 100 % de las veces que dijo «accionable» y tuvo 2,3 s de latencia mediana. El texto del gráfico está en inglés.",
+        "Sobre 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto acierta el 95 % de las veces que dice «accionable» y encuentra 35 de las 56 conexiones, con 4 de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
+      imageAlt: null,
     },
     thesis: {
       title: "Tesis — Detección automática de caídas",
@@ -219,11 +218,11 @@ export const es = {
       title: "Rekindle",
       intro:
         "Asistente local-first que conecta lo que leo con lo que escribo: compara artículos y videos contra los proyectos y notas de mi vault de Obsidian y propone acciones.",
-      text: "Sigo sumando técnicas de AI Engineering, como chunking basado en la estructura de los documentos.",
+      text: "Lo mido contra un conjunto etiquetado a mano en lugar de fiarme de demos. Últimamente dividí las notas largas por encabezados y probé que el modelo razone antes de dar el veredicto: las conexiones de más bajaron de 22 a 4, a cambio de algo de recall.",
       seeProject: "Ver el proyecto",
       evalTitle: "¿Qué modelo encuentra las conexiones?",
       evalCaption:
-        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
+        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23); las demás usan un prompt anterior (2026-10-19). Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
       columns: {
         model: "Modelo",
         precision: "Acierta cuando dice «accionable»",
@@ -232,13 +231,26 @@ export const es = {
       },
       found: "{found} de {total} (+{extra} extra)",
       models: {
+        currentDefault: {
+          name: "DeepSeek Flash",
+          note: "por defecto hoy, razona antes del veredicto (2026-10-23)",
+        },
         deepseekFast: {
           name: "DeepSeek Flash",
-          note: "por defecto, sin thinking",
+          note: "antes por defecto, sin thinking (2026-10-19)",
         },
-        deepseekThinking: { name: "DeepSeek Flash", note: "con thinking" },
-        geminiFlashLite: { name: "Gemini 3.1 Flash Lite", note: "en la nube" },
-        qwenLocal: { name: "Qwen 2.5 7B", note: "corre en tu máquina" },
+        deepseekThinking: {
+          name: "DeepSeek Flash",
+          note: "con thinking (2026-10-19)",
+        },
+        geminiFlashLite: {
+          name: "Gemini 3.1 Flash Lite",
+          note: "en la nube (2026-10-19)",
+        },
+        qwenLocal: {
+          name: "Qwen 2.5 7B",
+          note: "corre en tu máquina (2026-10-19)",
+        },
       },
     },
   },

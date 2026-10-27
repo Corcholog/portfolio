@@ -20,7 +20,10 @@ export function ProjectCard({ id, project, ui }: Props) {
   const demo = visible(facts.demo);
   const repo = visible(facts.repo);
   const pdf = visible(facts.pdf);
-  const image = visible(facts.image.src);
+  const imageFacts = facts.image;
+  const image = imageFacts ? visible(imageFacts.src) : null;
+  const imageAlt = project.imageAlt;
+  const hasImage = Boolean(imageFacts && image && imageAlt);
   const result = visible(project.result);
 
   return (
@@ -28,20 +31,24 @@ export function ProjectCard({ id, project, ui }: Props) {
       id={id}
       className="group border-line bg-card reveal border-l-line-strong hover:border-l-accent focus-within:border-l-accent scroll-mt-24 rounded-2xl border border-l-4 motion-safe:transition-colors"
     >
-      <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-9">
-        {image && (
+      <div
+        className={`grid gap-6 p-5 sm:p-7 ${
+          hasImage ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-9" : ""
+        }`}
+      >
+        {imageFacts && image && imageAlt && (
           <div className="border-line self-start overflow-hidden rounded-lg border">
             <Image
               src={image}
-              alt={project.imageAlt}
-              width={facts.image.width}
-              height={facts.image.height}
+              alt={imageAlt}
+              width={imageFacts.width}
+              height={imageFacts.height}
               sizes="(min-width: 768px) 40vw, 100vw"
               className="h-auto w-full"
             />
           </div>
         )}
-        <div className="min-w-0">
+        <div className={`min-w-0 ${hasImage ? "" : "max-w-3xl"}`}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h3 className="font-display flex items-center text-2xl font-medium tracking-tight">
               <ChevronRight
