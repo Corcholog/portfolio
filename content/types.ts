@@ -81,6 +81,8 @@ export type Content = {
   };
   projects: Record<ProjectId, ProjectContent>;
   about: {
+    portraitAlt: string | null;
+    campusAlt: string | null;
     paragraphs: string[];
   };
   timeline: Record<TimelineId, TimelineContent>;

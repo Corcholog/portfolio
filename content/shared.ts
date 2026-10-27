@@ -20,7 +20,7 @@ export const cvPath = {
 } as const;
 
 /** Date shown in the footer. Update by hand when the site changes. */
-export const lastUpdated = "2026-10-26";
+export const lastUpdated = "2026-10-27";
 
 export const projectIds = ["lide2", "rekindle", "thesis"] as const;
 export type ProjectId = (typeof projectIds)[number];
@@ -100,6 +100,11 @@ export const timelineIds = [
 ] as const;
 export type TimelineId = (typeof timelineIds)[number];
 
+export const aboutPhotos = {
+  portrait: { src: "/photos/me_portrait.webp", width: 640, height: 640 },
+  campus: { src: "/photos/unicen-exactas.webp", width: 960, height: 720 },
+} as const;
+
 export type TimelineIcon =
   | "swords"
   | "layers"
@@ -120,14 +125,14 @@ type TimelineFacts = {
 };
 
 export const timelineFacts: Record<TimelineId, TimelineFacts> = {
-  diablo: { icon: "swords", photo: null },
+  diablo: { icon: "swords", photo: "/photos/diablo.webp" },
   magic: { icon: "layers", photo: null },
   mugen: { icon: "gamepad", photo: null },
   firstCode: { icon: "smartphone", photo: null },
   unicen: { icon: "graduation-cap", photo: null },
   citylab: { icon: "map", photo: null },
   thesisItba: { icon: "flask", photo: null },
-  graduation: { icon: "graduation-cap", photo: null },
+  graduation: { icon: "graduation-cap", photo: "/photos/thesis-defense.webp" },
   lide2: { icon: "trophy", photo: null },
   esports: { icon: "award", photo: null },
   today: { icon: "sparkles", photo: null },

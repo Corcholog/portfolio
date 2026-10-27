@@ -61,7 +61,7 @@ export default async function HomePage({ params }: PageProps) {
             ))}
           </div>
         </Section>
-        <Section id="about" title={section.about}>
+        <Section id="about" title={section.about} band>
           <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="lg:col-start-1 lg:row-start-1">
               <AboutStory about={content.about} />
@@ -69,15 +69,18 @@ export default async function HomePage({ params }: PageProps) {
             <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
               <Timeline items={content.timeline} />
             </div>
-            <div className="lg:col-start-1 lg:row-start-2">
-              <Education education={content.education} />
+            <div className="lg:col-start-1 lg:row-start-2 lg:self-center">
+              <Education
+                education={content.education}
+                campusAlt={content.about.campusAlt}
+              />
             </div>
           </div>
         </Section>
         <Section id="now" title={section.now}>
           <NowSection locale={locale} content={content} />
         </Section>
-        <Section id="other" title={section.other}>
+        <Section id="other" title={section.other} band>
           <OtherWork other={content.other} />
         </Section>
         <Section id="contact" title={section.contact}>

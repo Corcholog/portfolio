@@ -10,13 +10,13 @@ type Props = {
 };
 
 const outlineButton =
-  "border-line-strong hover:border-ink inline-flex min-h-11 items-center gap-1.5 rounded-full border px-5 text-sm font-medium";
+  "border-line-strong hover:bg-chip hover:border-ink inline-flex min-h-12 items-center gap-1.5 rounded-full border px-6 text-base font-medium motion-safe:transition-colors";
 
 export function ContactSection({ locale, content }: Props) {
   const { contact, hero, ui } = content;
 
   return (
-    <div className="reveal mt-6">
+    <div className="reveal border-line bg-card shadow-cozy mt-8 rounded-3xl border p-7 sm:p-10">
       <p className="font-display max-w-2xl text-2xl leading-snug sm:text-3xl">
         {contact.line}
       </p>
@@ -34,7 +34,7 @@ export function ContactSection({ locale, content }: Props) {
           <a
             href={cvPath[locale]}
             download
-            className="bg-accent text-on-accent inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-sm font-medium hover:opacity-90"
+            className="bg-accent text-on-accent shadow-cozy hover:shadow-lift inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5"
           >
             <Download aria-hidden className="size-4" />
             {ui.cv}

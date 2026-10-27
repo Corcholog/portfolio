@@ -26,7 +26,7 @@ export function Pipeline({ pipeline }: { pipeline: PipelineContent }) {
           return (
             <li
               key={key}
-              className={`bg-card relative rounded-xl border p-4 ${
+              className={`bg-card relative rounded-2xl border p-4 ${
                 isHuman ? "border-accent" : "border-line"
               }`}
             >
@@ -52,7 +52,7 @@ export function Pipeline({ pipeline }: { pipeline: PipelineContent }) {
           );
         })}
       </ol>
-      <p className="border-line-strong text-muted mt-8 rounded-xl border border-dashed px-4 py-3 text-sm leading-relaxed">
+      <p className="border-line-strong text-muted mt-8 rounded-2xl border border-dashed px-4 py-3 text-sm leading-relaxed">
         {pipeline.memory}
       </p>
       <p className="text-muted mt-2 text-xs">{pipeline.referenceNote}</p>

@@ -1,6 +1,7 @@
 import type { Content } from "@/content";
 import type { Locale } from "@/lib/i18n";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { NavLinks } from "./NavLinks";
 import { ThemeToggle } from "./ThemeToggle";
 
 type Props = {
@@ -11,39 +12,35 @@ type Props = {
 export function SiteHeader({ locale, content }: Props) {
   const { meta, nav, lang, theme } = content;
   const links = [
-    { href: "#projects", label: nav.projects },
-    { href: "#about", label: nav.about },
-    { href: "#now", label: nav.now },
-    { href: "#contact", label: nav.contact },
+    { id: "projects", label: nav.projects },
+    { id: "about", label: nav.about },
+    { id: "now", label: nav.now },
+    { id: "contact", label: nav.contact },
   ];
 
   return (
-    <header className="border-line sticky top-0 z-40 border-b bg-[var(--header-bg)] backdrop-blur">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-3 px-4 py-1 sm:gap-x-6 sm:px-6">
+    <header className="border-line sticky top-0 z-40 border-b bg-[var(--header-bg)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-2 gap-y-1.5 px-4 py-2 sm:gap-x-4 sm:gap-y-2 sm:px-6 sm:py-3.5">
         <a
           href="#top"
-          className="font-display inline-flex min-h-9 items-center text-[15px] font-medium min-[361px]:text-base sm:text-lg"
+          className="flex min-h-9 items-center gap-2.5 rounded-xl sm:min-h-10"
         >
-          {meta.name}
+          <span
+            aria-hidden
+            className="bg-accent text-on-accent shadow-cozy hidden size-9 shrink-0 place-items-center rounded-xl sm:grid"
+          >
+            <svg viewBox="0 0 24 24" className="size-4" fill="currentColor">
+              <path d="M12 3 21 12 12 21 3 12Z" />
+            </svg>
+          </span>
+          <span className="font-display text-sm font-medium min-[361px]:text-base sm:text-xl">
+            {meta.name}
+          </span>
         </a>
-        <nav
-          aria-label={nav.label}
-          className="order-last w-full sm:order-none sm:w-auto sm:flex-1"
-        >
-          <ul className="flex gap-x-0.5 sm:gap-x-2">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-muted hover:text-ink inline-flex min-h-9 items-center px-1.5 text-sm whitespace-nowrap underline-offset-4 hover:underline sm:px-2"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="ml-auto flex items-center gap-1">
+        <div className="order-last w-full lg:order-none lg:flex lg:w-auto lg:flex-1 lg:justify-center">
+          <NavLinks links={links} label={nav.label} />
+        </div>
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
           <LanguageSwitcher current={locale} label={lang.toggle} />
           <ThemeToggle label={theme.toggle} />
         </div>

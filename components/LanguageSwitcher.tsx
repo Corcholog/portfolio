@@ -45,7 +45,7 @@ export function LanguageSwitcher({ current, label }: Props) {
 
   return (
     <nav aria-label={label}>
-      <ul className="flex items-center">
+      <ul className="border-line bg-chip flex items-center rounded-full border p-1">
         {locales.map((locale) => (
           <li key={locale}>
             <a
@@ -54,7 +54,7 @@ export function LanguageSwitcher({ current, label }: Props) {
               hrefLang={locale}
               aria-current={locale === current ? "true" : undefined}
               onClick={(event) => switchTo(locale, event)}
-              className="text-muted hover:text-ink aria-[current=true]:text-accent inline-flex min-h-9 min-w-9 items-center justify-center font-mono text-sm uppercase underline-offset-4 aria-[current=true]:font-medium aria-[current=true]:underline max-[360px]:min-w-8"
+              className="text-muted hover:bg-card hover:text-ink aria-[current=true]:bg-card aria-[current=true]:text-accent aria-[current=true]:shadow-cozy inline-flex min-h-8 min-w-8 items-center justify-center rounded-full px-1 font-mono text-sm font-medium uppercase motion-safe:transition-colors min-[360px]:min-w-9 min-[360px]:px-2 sm:min-h-10 sm:min-w-11 sm:text-base"
             >
               {locale}
             </a>

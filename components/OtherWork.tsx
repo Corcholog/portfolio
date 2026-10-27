@@ -24,7 +24,7 @@ export function OtherWork({ other }: { other: Content["other"] }) {
                 {otherFacts[id].stack.map((tech) => (
                   <li
                     key={tech}
-                    className="border-line text-muted rounded-full border px-2.5 py-0.5 font-mono text-xs"
+                    className="bg-chip text-chip-text rounded-full px-3 py-1 font-mono text-xs"
                   >
                     {tech}
                   </li>

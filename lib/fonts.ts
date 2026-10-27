@@ -10,7 +10,7 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
-  axes: ["opsz"],
+  axes: ["SOFT"],
 });
 
 const jetbrainsMono = JetBrains_Mono({

@@ -28,10 +28,10 @@ export default async function OpengraphImage({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#FAF6EF",
-        color: "#1F1B16",
+        background: "#FFF5E4",
+        color: "#2B1418",
         padding: "72px 80px",
-        borderLeft: "24px solid #B4440F",
+        borderLeft: "24px solid #850E35",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -39,11 +39,11 @@ export default async function OpengraphImage({
           style={{
             width: 28,
             height: 28,
-            background: "#B4440F",
+            background: "#850E35",
             transform: "rotate(45deg)",
           }}
         />
-        <div style={{ fontSize: 30, color: "#B4440F" }}>{meta.roleLine}</div>
+        <div style={{ fontSize: 30, color: "#850E35" }}>{meta.roleLine}</div>
       </div>
       <div
         style={{
@@ -56,7 +56,7 @@ export default async function OpengraphImage({
       >
         {meta.tagline}
       </div>
-      <div style={{ display: "flex", fontSize: 44, color: "#6B6257" }}>
+      <div style={{ display: "flex", fontSize: 44, color: "#6A4A52" }}>
         {meta.name}
       </div>
     </div>,

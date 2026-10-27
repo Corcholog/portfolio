@@ -35,13 +35,13 @@ export function NowSection({ locale, content }: Props) {
                 href={mmm.repo}
                 newTabLabel={ui.newTab}
                 context={mmm.name}
-                className="border-line-strong hover:border-ink inline-flex min-h-10 items-center gap-1 rounded-full border px-4 text-sm font-medium"
+                className="border-line-strong hover:bg-chip hover:border-ink inline-flex min-h-11 items-center gap-1 rounded-full border px-5 text-sm font-medium motion-safe:transition-colors"
               >
                 {ui.repo}
               </ExternalLink>
             </div>
           </div>
-          <div className="border-line bg-card self-start rounded-2xl border p-5">
+          <div className="border-line bg-card self-start rounded-3xl border p-6">
             <p className="font-medium">
               {formatProgress(now.mmm.progress, locale, mmm.progress)}
             </p>

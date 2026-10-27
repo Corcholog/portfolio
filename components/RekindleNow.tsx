@@ -13,7 +13,8 @@ const cell =
   "flex items-baseline justify-between gap-4 py-1 before:text-muted before:max-w-[55%] before:text-xs before:content-[attr(data-label)] sm:table-cell sm:px-4 sm:py-3 sm:before:hidden";
 
 export function RekindleNow({ locale, content }: Props) {
-  const percent = new Intl.NumberFormat(locale, { style: "percent" });
+  // Same "95%" in both languages: Spanish Intl output would add a space before "%".
+  const percent = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
   const seconds = new Intl.NumberFormat(locale, {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
@@ -45,7 +46,7 @@ export function RekindleNow({ locale, content }: Props) {
       <h4 className="font-display mt-10 text-xl font-medium tracking-tight">
         {content.evalTitle}
       </h4>
-      <div className="border-line mt-4 overflow-hidden rounded-xl border">
+      <div className="border-line-strong bg-card shadow-cozy mt-4 overflow-hidden rounded-2xl border">
         <table role="table" className="block w-full text-left text-sm sm:table">
           <caption className="sr-only">{content.evalTitle}</caption>
           <thead
@@ -54,7 +55,7 @@ export function RekindleNow({ locale, content }: Props) {
           >
             <tr
               role="row"
-              className="border-line text-muted font-mono text-xs sm:table-row sm:border-b"
+              className="border-line-strong bg-band text-muted font-mono text-xs sm:table-row sm:border-b"
             >
               {headers.map((header) => (
                 <th
@@ -97,7 +98,7 @@ export function RekindleNow({ locale, content }: Props) {
                     className={cell}
                   >
                     <span className="font-mono">
-                      {percent.format(data.precision)}
+                      {percent.format(data.precision * 100)}%
                     </span>
                   </td>
                   <td
@@ -126,7 +127,7 @@ export function RekindleNow({ locale, content }: Props) {
           </tbody>
         </table>
       </div>
-      <p className="text-muted mt-3 max-w-prose text-sm leading-relaxed">
+      <p className="text-muted mt-3 text-sm leading-relaxed">
         {fillTemplate(content.evalCaption, { pairs, connections })}
       </p>
     </div>

@@ -3,9 +3,8 @@ import type { Content } from "./types";
 export const es = {
   meta: {
     name: "Giorgio Iván Loguercio",
-    roleLine: "Ingeniero en Sistemas · Full stack + Machine Learning aplicado",
-    tagline:
-      "Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
+    roleLine: "Ingeniero en Sistemas · Full stack + IA",
+    tagline: "Desarrollo apps web e integro LLMs midiendo su calidad.",
     pageTitle: "Giorgio Iván Loguercio — Ingeniero en Sistemas, Full stack",
     description:
       "Ingeniero en Sistemas (UNICEN) con perfil full stack y Machine Learning aplicado. Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
@@ -70,11 +69,11 @@ export const es = {
         "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault, y sin claves de nube todo corre en local.",
         "Retrieval en dos etapas: pre-filtro con pgvector (los 3 proyectos más cercanos) y evaluación con un LLM que responde con JSON validado contra un schema; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
-        "Telemetría de costo por token y latencia; 426 tests, más de la mitad de integración con Testcontainers.",
+        "Telemetría de costo por token y latencia; tests de integración con Testcontainers.",
       ],
       resultLabel: "Resultado",
       result:
-        "Sobre 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto acierta el 95 % de las veces que dice «accionable» y encuentra 35 de las 56 conexiones, con 4 de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
+        "Sobre 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
       imageAlt: null,
     },
     thesis: {
@@ -97,24 +96,30 @@ export const es = {
     },
   },
   about: {
+    portraitAlt:
+      "Retrato mío de frente, con anteojos y camisa a rayas azules y blancas.",
+    campusAlt:
+      "Mi compañero de tesis y yo de traje junto al monolito por los 60 años de la Facultad de Ciencias Exactas (1965–2025), frente al edificio de ladrillo del campus de la UNICEN en Tandil.",
     paragraphs: [
-      "Usé la computadora mucho antes de programar. A los 6 años jugaba Diablo II, y buena parte de mi inglés lo aprendí ahí, frente a la pantalla. A los 8 aprendí Magic: The Gathering; años después, en la facultad, entendí la pila de ejecución casi al instante porque ya conocía la pila del juego y su sistema de prioridades. Entre los 9 y los 12 descubrí MUGEN y, siguiendo tutoriales, armé mi propio juego de peleas con los personajes que quería.",
-      "En la secundaria pensaba estudiar psicología, hasta que en 5º año conocí la programación. No tenía computadora, así que mi primer programa lo escribí en Java desde el celular: un diálogo que, según tu año de nacimiento, te decía si eras mayor de edad.",
-      "En 2021 entré a Ingeniería de Sistemas en la UNICEN y elegí dedicarme de lleno a la carrera. Para la tesis quise hacer algo más que una web: con un compañero, y dirigidos por una investigadora del CONICET, investigamos la detección automática de caídas con estimación de pose y redes neuronales. Fue un desafío y aprendí muchísimo. Me recibí en junio de 2026.",
-      "Los juegos nunca se fueron. Jugando el torneo interuniversitario de League of Legends vi que no había un sitio para seguir resultados y estadísticas, así que lo construí: LIDE 2 terminó siendo la plataforma oficial. Hoy estoy traduciendo al español una novela visual japonesa de PS2 con un pipeline de agentes de IA.",
+      "Desde chico me interesó la computadora. A los 6-7 años jugaba Diablo II, mi primer juego de PC. Desde entonces fui aprendiendo inglés de a poco, por inmersión y necesidad, con juegos y contenido en ese idioma. A los 8 aprendí Magic: The Gathering; años después, en la universidad, entendí la pila de ejecución casi al instante porque ya conocía la pila del juego. Entre los 9 y los 12 descubrí MUGEN y, siguiendo tutoriales, armé mi propio juego de peleas con los personajes que quería.",
+      "En la secundaria pensaba estudiar psicología, hasta que en 5º año conocí la programación. No tenía computadora, así que mi primer programa lo escribí en Java desde el celular: un diálogo que, según tu fecha de nacimiento, te decía si eras mayor de edad.",
+      "En 2021 entré a Ingeniería de Sistemas en la UNICEN y elegí dedicarme de lleno a la carrera. Para la tesis quise hacer algo más que una web: con un compañero, y dirigidos por una investigadora del CONICET, realizamos una evaluación comparativa de detección automática de caídas con estimación de pose y redes neuronales/transformers. Fue un desafío y aprendí muchísimo. Me recibí en junio de 2026.",
+      "Mi formación no terminó ahí. En 2025 me dieron una beca para realizar una Certificación avanzada en FullStack en el ITBA. En 2026 realicé la Diplomatura en deportes electrónicos en la UNLP.",
+      "Los juegos nunca se fueron. Jugando la Liga Interuniversitaria de Deportes Electrónicos (LIDE) vi que no había un sitio para seguir resultados y estadísticas, así que lo construí: LIDE 2 terminó siendo la plataforma oficial. Hoy estoy traduciendo al español una novela visual japonesa de PS2 con un pipeline de agentes de IA.",
     ],
   },
   timeline: {
     diablo: {
       when: "6–7 años",
       title: "Diablo II",
-      line: "Mi primera PC y mi inglés, aprendido jugando.",
-      photoAlt: null,
+      line: "Siempre me interesó la PC. Cuando tuve edad comencé a jugar y de ahí en más, el inglés llegó de a poco, por inmersión y necesidad.",
+      photoAlt:
+        "Foto antigua mía, de muy chico y de espaldas, estirando la mano hacia la computadora para prenderla.",
     },
     magic: {
       when: "8 años",
       title: "Magic: The Gathering",
-      line: "La pila del juego, años antes de la pila de ejecución.",
+      line: "Aprendía la pila del juego, años antes de la pila de ejecución.",
       photoAlt: null,
     },
     mugen: {
@@ -144,14 +149,15 @@ export const es = {
     thesisItba: {
       when: "2025",
       title: "Tesis e ITBA",
-      line: "Empiezo la tesis y completo la certificación Full-Stack del ITBA.",
+      line: "Empiezo la tesis y completo la certificación FullStack de una beca del ITBA.",
       photoAlt: null,
     },
     graduation: {
       when: "Junio 2026",
       title: "Ingeniero en Sistemas",
       line: "Defiendo la tesis y me recibo.",
-      photoAlt: null,
+      photoAlt:
+        "Yo presentando la tesis junto a una pantalla proyectada con una tabla comparativa de enfoques y variantes; parte del público se ve de espaldas.",
     },
     lide2: {
       when: "Agosto 2026",
@@ -184,7 +190,7 @@ export const es = {
       ],
       progress: "{done} de {total} entradas ({percent}) al {date}",
       reviewerMetric:
-        "En 52 lotes revisados (11.285 líneas), el revisor modificó el 6,5 % de las líneas (4,0 % en el último guion), sobre todo por naturalidad y fidelidad.",
+        "En 52 lotes revisados (11.285 líneas), el revisor modificó el 6,5% de las líneas (4,0% en el último guion), sobre todo por naturalidad y fidelidad.",
       pipeline: {
         title: "Cómo se traduce un lote",
         scout: {

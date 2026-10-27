@@ -56,27 +56,31 @@ export function Timeline({ items }: { items: Content["timeline"] }) {
               className={
                 isLast
                   ? "border-accent bg-bg absolute top-1.5 -left-[7px] size-3.5 rotate-45 border-2"
-                  : "bg-accent absolute top-1.5 -left-[6px] size-3 rotate-45"
+                  : "bg-accent absolute top-1.5 -left-[6px] size-3 rotate-45 shadow-[0_0_0_4px_color-mix(in_srgb,var(--accent)_20%,transparent)]"
               }
             />
             <p className="text-accent font-mono text-xs">{item.when}</p>
             <h3 className="font-display mt-1 flex items-start gap-2 text-xl font-medium tracking-tight">
-              <Icon
+              <span
                 aria-hidden
-                className="text-muted mt-[0.4em] size-[18px] shrink-0"
-              />
+                className="bg-chip text-accent mt-0.5 grid size-8 shrink-0 place-items-center rounded-full"
+              >
+                <Icon className="size-[18px]" />
+              </span>
               {item.title}
             </h3>
             <p className="text-muted mt-1">{item.line}</p>
             {photo && photoAlt && (
-              <div className="border-line relative mt-4 aspect-[4/3] max-w-sm overflow-hidden rounded-xl border">
-                <Image
-                  src={photo}
-                  alt={photoAlt}
-                  fill
-                  sizes="(min-width: 1024px) 24rem, 90vw"
-                  className="object-cover"
-                />
+              <div className="border-line bg-card shadow-cozy mt-4 max-w-sm overflow-hidden rounded-2xl border p-1.5">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                  <Image
+                    src={photo}
+                    alt={photoAlt}
+                    fill
+                    sizes="(min-width: 1024px) 24rem, 90vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             )}
           </li>

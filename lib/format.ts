@@ -20,8 +20,8 @@ export function formatProgress(
   { done, total, asOf }: Progress,
 ): string {
   const numbers = new Intl.NumberFormat(locale);
+  // No space before "%" in either language (Spanish Intl output would add one).
   const percent = new Intl.NumberFormat(locale, {
-    style: "percent",
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
@@ -29,7 +29,7 @@ export function formatProgress(
   return template
     .replace("{done}", numbers.format(done))
     .replace("{total}", numbers.format(total))
-    .replace("{percent}", percent.format(done / total))
+    .replace("{percent}", `${percent.format((done / total) * 100)}%`)
     .replace("{date}", formatDate(asOf, locale));
 }
 

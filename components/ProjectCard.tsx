@@ -13,7 +13,7 @@ type Props = {
 };
 
 const linkClass =
-  "border-line-strong hover:border-ink inline-flex min-h-10 items-center gap-1 rounded-full border px-4 text-sm font-medium";
+  "border-line-strong hover:bg-chip hover:border-ink inline-flex min-h-11 items-center gap-1 rounded-full border px-5 text-sm font-medium motion-safe:transition-colors";
 
 export function ProjectCard({ id, project, ui }: Props) {
   const facts = projectFacts[id];
@@ -29,28 +29,28 @@ export function ProjectCard({ id, project, ui }: Props) {
   return (
     <article
       id={id}
-      className="group border-line bg-card reveal border-l-line-strong hover:border-l-accent focus-within:border-l-accent scroll-mt-24 rounded-2xl border border-l-4 motion-safe:transition-colors"
+      className="group border-line bg-card reveal border-l-line-strong hover:border-l-accent focus-within:border-l-accent shadow-cozy hover:shadow-lift scroll-mt-28 rounded-3xl border border-l-4 motion-safe:transition motion-safe:duration-300"
     >
       <div
-        className={`grid gap-6 p-5 sm:p-7 ${
+        className={`grid gap-7 p-6 sm:p-9 ${
           hasImage ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-9" : ""
         }`}
       >
         {imageFacts && image && imageAlt && (
-          <div className="border-line self-start overflow-hidden rounded-lg border">
+          <div className="border-line bg-card shadow-cozy self-start rounded-2xl border p-2">
             <Image
               src={image}
               alt={imageAlt}
               width={imageFacts.width}
               height={imageFacts.height}
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="h-auto w-full"
+              className="h-auto w-full rounded-xl"
             />
           </div>
         )}
         <div className={`min-w-0 ${hasImage ? "" : "max-w-3xl"}`}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h3 className="font-display flex items-center text-2xl font-medium tracking-tight">
+            <h3 className="font-display flex items-center text-2xl font-medium tracking-tight sm:text-3xl">
               <ChevronRight
                 aria-hidden
                 className="text-muted group-hover:text-accent group-focus-within:text-accent -ml-1 size-6 shrink-0 motion-safe:transition-colors"
@@ -69,7 +69,7 @@ export function ProjectCard({ id, project, ui }: Props) {
             ))}
           </ul>
           {result && (
-            <p className="bg-chip text-chip-text mt-5 rounded-lg px-4 py-3 text-sm leading-relaxed">
+            <p className="bg-chip text-chip-text mt-6 rounded-2xl px-5 py-4 text-sm leading-relaxed">
               <span className="font-mono text-xs font-medium">
                 {project.resultLabel}
               </span>
@@ -82,7 +82,7 @@ export function ProjectCard({ id, project, ui }: Props) {
             {facts.stack.map((tech) => (
               <li
                 key={tech}
-                className="border-line text-muted rounded-full border px-2.5 py-0.5 font-mono text-xs"
+                className="bg-chip text-chip-text rounded-full px-3 py-1 font-mono text-xs"
               >
                 {tech}
               </li>

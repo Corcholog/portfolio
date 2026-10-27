@@ -27,17 +27,13 @@ function restoreTheme() {
   }
 }
 
-/** Light/dark switch. Starts from the system preference; the choice is remembered. */
+/** Light/dark switch. Starts in dark mode; the choice is remembered. */
 export function ThemeToggle({ label }: { label: string }) {
   useEffect(restoreTheme, []);
 
   function toggle() {
     const root = document.documentElement;
-    const current =
-      root.dataset.theme ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light");
+    const current = root.dataset.theme === "light" ? "light" : "dark";
     applyTheme(current === "dark" ? "light" : "dark");
   }
 
@@ -46,10 +42,10 @@ export function ThemeToggle({ label }: { label: string }) {
       type="button"
       onClick={toggle}
       aria-label={label}
-      className="text-muted hover:text-ink inline-flex size-9 items-center justify-center rounded-full max-[360px]:size-8"
+      className="border-line bg-chip text-muted hover:bg-card hover:text-ink inline-flex size-9 items-center justify-center rounded-full border motion-safe:transition-colors sm:size-12"
     >
-      <Moon aria-hidden className="icon-moon size-[18px]" />
-      <Sun aria-hidden className="icon-sun size-[18px]" />
+      <Moon aria-hidden className="icon-moon size-5" />
+      <Sun aria-hidden className="icon-sun size-5" />
     </button>
   );
 }

@@ -3,9 +3,8 @@ import type { Content } from "./types";
 export const en = {
   meta: {
     name: "Giorgio Iván Loguercio",
-    roleLine: "Systems Engineer · Full stack + applied Machine Learning",
-    tagline:
-      "I build production web apps and integrate LLMs, measuring their quality.",
+    roleLine: "Systems Engineer · Full stack + AI",
+    tagline: "I build web apps and integrate LLMs, measuring their quality.",
     pageTitle: "Giorgio Iván Loguercio — Systems Engineer, Full stack",
     description:
       "Systems Engineer (UNICEN) with a full stack and applied machine learning profile. I build production web apps and integrate LLMs, measuring their quality.",
@@ -70,11 +69,11 @@ export const en = {
         "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault, and with no cloud keys everything runs locally.",
         "Two-stage retrieval: a pgvector pre-filter (the 3 closest projects) plus an LLM evaluation that answers with schema-validated JSON; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
-        "Per-token cost and latency telemetry; 426 tests, more than half of them integration tests with Testcontainers.",
+        "Per-token cost and latency telemetry; integration tests with Testcontainers.",
       ],
       resultLabel: "Result",
       result:
-        "On 376 hand-labeled article × project pairs, the default model is right 95% of the time it says “actionable” and finds 35 of the 56 connections, with 4 extra (one labeler; how useful the suggestions are is not measured).",
+        "On 376 hand-labeled article × project pairs, the default model is right 95% of the time it says “actionable” and finds 4 extra connections (one labeler; how useful the suggestions are is not measured).",
       imageAlt: null,
     },
     thesis: {
@@ -97,24 +96,30 @@ export const en = {
     },
   },
   about: {
+    portraitAlt:
+      "Front portrait of me wearing glasses and a blue-and-white striped shirt.",
+    campusAlt:
+      "My thesis partner and I in suits next to the 60th-anniversary monolith of the Faculty of Exact Sciences (1965–2025), in front of the brick building on the UNICEN campus in Tandil.",
     paragraphs: [
-      "I was using computers long before I wrote code. At 6 I was playing Diablo II, and I learned a good part of my English right there, in front of the screen. At 8 I learned Magic: The Gathering; years later, at university, I understood the call stack almost instantly because I already knew the game's stack and its priority system. Between 9 and 12 I discovered MUGEN and, following tutorials, built my own fighting game with the characters I wanted.",
-      "In high school I planned to study psychology, until in my final year I discovered programming. I didn't have a computer, so I wrote my first program in Java on my phone: a small dialogue that told you whether you were an adult based on your birth year.",
-      "In 2021 I started Systems Engineering at UNICEN and chose to focus fully on my degree. For my thesis I wanted to do more than a website: with a classmate, and supervised by a CONICET researcher, we researched automatic fall detection with pose estimation and neural networks. It was a challenge and I learned a lot. I graduated in June 2026.",
-      "Games never went away. Playing the inter-university League of Legends tournament, I noticed there was no site to follow results and statistics, so I built one: LIDE 2 became the official platform. Today I'm translating a Japanese PS2 visual novel into Spanish with a pipeline of AI agents.",
+      "I was interested in computers from a young age. At 6–7 I was playing Diablo II, my first PC game. From then on I picked up English bit by bit, through immersion and need, with games and content in that language. At 8 I learned Magic: The Gathering; years later, at university, I understood the call stack almost instantly because I already knew the game's stack. Between 9 and 12 I discovered MUGEN and, following tutorials, built my own fighting game with the characters I wanted.",
+      "In high school I planned to study psychology, until in my final year I discovered programming. I didn't have a computer, so I wrote my first program in Java on my phone: a dialogue that told you whether you were an adult based on your date of birth.",
+      "In 2021 I started Systems Engineering at UNICEN and chose to focus fully on my degree. For my thesis I wanted to do more than a website: with a classmate, and supervised by a CONICET researcher, we ran a comparative evaluation of automatic fall detection with pose estimation and neural networks/transformers. It was a challenge and I learned a lot. I graduated in June 2026.",
+      "My education didn't stop there. In 2025 I received a scholarship to complete an Advanced Full-Stack Certification at ITBA. In 2026 I completed the Diploma in Esports at UNLP.",
+      "Games never went away. Playing the Inter-University Esports League (LIDE), I noticed there was no site to follow results and statistics, so I built one: LIDE 2 became the official platform. Today I'm translating a Japanese PS2 visual novel into Spanish with a pipeline of AI agents.",
     ],
   },
   timeline: {
     diablo: {
       when: "Age 6–7",
       title: "Diablo II",
-      line: "My first PC, and English learned by playing.",
-      photoAlt: null,
+      line: "I was always interested in PCs. When I was old enough I started playing, and from then on English came bit by bit, through immersion and need.",
+      photoAlt:
+        "Old photo of me when I was very young, seen from behind, reaching toward the computer to turn it on.",
     },
     magic: {
       when: "Age 8",
       title: "Magic: The Gathering",
-      line: "The game's stack, years before the call stack.",
+      line: "I was learning the game's stack, years before the call stack.",
       photoAlt: null,
     },
     mugen: {
@@ -144,14 +149,15 @@ export const en = {
     thesisItba: {
       when: "2025",
       title: "Thesis and ITBA",
-      line: "I start my thesis and complete the ITBA Full-Stack certification.",
+      line: "I start my thesis and complete the ITBA Full-Stack certification on a scholarship.",
       photoAlt: null,
     },
     graduation: {
       when: "June 2026",
       title: "Systems Engineer",
       line: "I defend my thesis and graduate.",
-      photoAlt: null,
+      photoAlt:
+        "Me presenting my thesis next to a projected slide with a comparison table of approaches and variants; part of the audience is seen from behind.",
     },
     lide2: {
       when: "August 2026",
