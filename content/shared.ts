@@ -20,7 +20,7 @@ export const cvPath = {
 } as const;
 
 /** Date shown in the footer. Update by hand when the site changes. */
-export const lastUpdated = "2026-10-27";
+export const lastUpdated = "2026-10-29";
 
 export const projectIds = ["lide2", "rekindle", "thesis"] as const;
 export type ProjectId = (typeof projectIds)[number];
@@ -66,11 +66,16 @@ export const projectFacts: Record<ProjectId, ProjectFacts> = {
       "Vitest",
       "GitHub Actions",
     ],
-    // Private repository and local-first app: no repo or demo button.
-    repo: null,
+    // Local-first app: the repository is public and ships a demo vault, so there is
+    // no hosted demo to link.
+    repo: "https://github.com/Corcholog/rekindle",
     demo: null,
     pdf: null,
-    image: null,
+    image: {
+      src: "/projects/rekindle-suggestions.webp",
+      width: 1360,
+      height: 1000,
+    },
   },
   thesis: {
     stack: ["Python", "TensorFlow", "PyTorch"],
@@ -157,7 +162,6 @@ export const mmm = {
 
 export const modelIds = [
   "currentDefault",
-  "deepseekFast",
   "deepseekThinking",
   "geminiFlashLite",
   "qwenLocal",
@@ -166,21 +170,28 @@ export type ModelId = (typeof modelIds)[number];
 
 /**
  * Rekindle model comparison on a hand-labeled set of article x project pairs.
- * `currentDefault` is the default model since 2026-10-23 (it reasons before the
- * verdict); the other four are the 2026-10-19 runs with the earlier prompt.
+ *
+ * The numbers are the ones published in the repository's README, so both
+ * surfaces say the same thing:
+ * - `currentDefault` is the default since 2026-10-23 (it reasons before its
+ *   verdict and matches long notes section by section).
+ * - `deepseekThinking` and `geminiFlashLite` were measured with the prompt of
+ *   2026-10-19.
+ * - `qwenLocal` was measured with the prompt from before the structured text
+ *   (2026-10-21) and was not repeated.
+ *
  * `precision` is how often the model was right when it said "actionable"; `found`
  * counts real connections found out of `connections`; `extra` are additional
- * links it proposed. Source: the project's evaluation reports.
+ * links it proposed. Source: the project's evaluation report.
  */
 export const rekindleEval = {
   pairs: 376,
   connections: 56,
   models: {
     currentDefault: { precision: 0.95, found: 35, extra: 4, latency: 1.8 },
-    deepseekFast: { precision: 1, found: 46, extra: 19, latency: 2.3 },
     deepseekThinking: { precision: 0.79, found: 49, extra: 26, latency: 4.1 },
     geminiFlashLite: { precision: 0.64, found: 49, extra: 25, latency: 4.4 },
-    qwenLocal: { precision: 1, found: 32, extra: 9, latency: 3.8 },
+    qwenLocal: { precision: 1, found: 30, extra: 9, latency: 7.2 },
   },
   /** The model Rekindle uses by default (highlighted in the table). */
   defaultModel: "currentDefault",

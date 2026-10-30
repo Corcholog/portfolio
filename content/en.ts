@@ -3,11 +3,11 @@ import type { Content } from "./types";
 export const en = {
   meta: {
     name: "Giorgio Iván Loguercio",
-    roleLine: "Systems Engineer · Full stack + AI",
+    roleLine: "Software Engineer · LLM apps, RAG & evals",
     tagline: "I build web apps and integrate LLMs, measuring their quality.",
-    pageTitle: "Giorgio Iván Loguercio — Systems Engineer, Full stack",
+    pageTitle: "Giorgio Loguercio — Software Engineer · LLM apps & full stack",
     description:
-      "Systems Engineer (UNICEN) with a full stack and applied machine learning profile. I build production web apps and integrate LLMs, measuring their quality.",
+      "Software Engineer (Systems Engineering, UNICEN, 2026) with a full stack and applied AI profile. I build production web apps and integrate LLMs, measuring their quality.",
   },
   nav: {
     label: "Main",
@@ -69,12 +69,13 @@ export const en = {
         "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault, and with no cloud keys everything runs locally.",
         "Two-stage retrieval: a pgvector pre-filter (the 3 closest projects) plus an LLM evaluation that answers with schema-validated JSON; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
-        "Per-token cost and latency telemetry; integration tests with Testcontainers.",
+        "Per-token cost and latency telemetry; 81 test files, 40 of them against a throwaway PostgreSQL with pgvector in a Testcontainer.",
       ],
       resultLabel: "Result",
       result:
-        "On 376 hand-labeled article × project pairs, the default model is right 95% of the time it says “actionable” and finds 4 extra connections (one labeler; how useful the suggestions are is not measured).",
-      imageAlt: null,
+        "On 376 hand-labeled article × project pairs, DeepSeek Flash (the default) is right 95% of the time it says “actionable” and finds 4 extra connections (one labeler; how useful the suggestions are is not measured).",
+      imageAlt:
+        "Rekindle’s web interface in the Suggestions tab, with the demo vault: four projects in the sidebar with their dormancy counters, and a list of pending suggestions, each one with the article it came from, a summary, the note it points at and buttons to discard or integrate it.",
     },
     thesis: {
       title: "Thesis — Automatic fall detection",
@@ -227,7 +228,7 @@ export const en = {
       seeProject: "See the project",
       evalTitle: "Which model finds the connections?",
       evalCaption:
-        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23); the others use an earlier prompt (2026-10-19). What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
+        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23). Gemini and the thinking-on run use the prompt of 2026-10-19; the local Qwen run uses the prompt from before 2026-10-21 and was not repeated. Without chunking and with the verdict first, the same default found 42 connections with 19 extra. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
       columns: {
         model: "Model",
         precision: "Right when it says “actionable”",
@@ -240,21 +241,17 @@ export const en = {
           name: "DeepSeek Flash",
           note: "default now, reasons before the verdict (2026-10-23)",
         },
-        deepseekFast: {
-          name: "DeepSeek Flash",
-          note: "former default, thinking off (2026-10-19)",
-        },
         deepseekThinking: {
           name: "DeepSeek Flash",
-          note: "thinking on (2026-10-19)",
+          note: "thinking on, prompt of 2026-10-19",
         },
         geminiFlashLite: {
           name: "Gemini 3.1 Flash Lite",
-          note: "cloud (2026-10-19)",
+          note: "cloud, prompt of 2026-10-19",
         },
         qwenLocal: {
           name: "Qwen 2.5 7B",
-          note: "runs on your machine (2026-10-19)",
+          note: "runs on your machine, prompt before 2026-10-21",
         },
       },
     },

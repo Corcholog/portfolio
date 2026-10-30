@@ -3,11 +3,11 @@ import type { Content } from "./types";
 export const es = {
   meta: {
     name: "Giorgio Iván Loguercio",
-    roleLine: "Ingeniero en Sistemas · Full stack + IA",
+    roleLine: "Ingeniero de Software · LLM apps, RAG y evals",
     tagline: "Desarrollo apps web e integro LLMs midiendo su calidad.",
-    pageTitle: "Giorgio Iván Loguercio — Ingeniero en Sistemas, Full stack",
+    pageTitle: "Giorgio Loguercio — Ingeniero de Software · LLM apps & full stack",
     description:
-      "Ingeniero en Sistemas (UNICEN) con perfil full stack y Machine Learning aplicado. Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
+      "Ingeniero de Software (Ingeniería en Sistemas, UNICEN, 2026) con perfil full stack y de IA aplicada. Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
   },
   nav: {
     label: "Principal",
@@ -69,12 +69,13 @@ export const es = {
         "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault, y sin claves de nube todo corre en local.",
         "Retrieval en dos etapas: pre-filtro con pgvector (los 3 proyectos más cercanos) y evaluación con un LLM que responde con JSON validado contra un schema; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
-        "Telemetría de costo por token y latencia; tests de integración con Testcontainers.",
+        "Telemetría de costo por token y latencia; 81 archivos de tests, 40 de ellos contra un PostgreSQL throwaway con pgvector en un Testcontainer.",
       ],
       resultLabel: "Resultado",
       result:
-        "Sobre 376 pares artículo × proyecto etiquetados a mano, el modelo por defecto acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
-      imageAlt: null,
+        "Sobre 376 pares artículo × proyecto etiquetados a mano, DeepSeek Flash (el modelo por defecto) acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
+      imageAlt:
+        "La interfaz web de Rekindle en la pestaña Suggestions, con el vault de demostración: cuatro proyectos en la barra lateral con sus contadores de abandono, y una lista de sugerencias pendientes, cada una con el artículo del que salió, un resumen, la nota a la que apunta y botones para descartarla o integrarla.",
     },
     thesis: {
       title: "Tesis — Detección automática de caídas",
@@ -228,7 +229,7 @@ export const es = {
       seeProject: "Ver el proyecto",
       evalTitle: "¿Qué modelo encuentra las conexiones?",
       evalCaption:
-        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23); las demás usan un prompt anterior (2026-10-19). Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
+        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23). Gemini y la corrida con thinking usan el prompt del 2026-10-19; la de Qwen local usa el prompt anterior al texto estructurado (2026-10-21) y no se repitió. Sin chunking y con el veredicto primero, el mismo modelo por defecto encontró 42 conexiones con 19 de más. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
       columns: {
         model: "Modelo",
         precision: "Acierta cuando dice «accionable»",
@@ -241,21 +242,17 @@ export const es = {
           name: "DeepSeek Flash",
           note: "por defecto hoy, razona antes del veredicto (2026-10-23)",
         },
-        deepseekFast: {
-          name: "DeepSeek Flash",
-          note: "antes por defecto, sin thinking (2026-10-19)",
-        },
         deepseekThinking: {
           name: "DeepSeek Flash",
-          note: "con thinking (2026-10-19)",
+          note: "con thinking, prompt del 2026-10-19",
         },
         geminiFlashLite: {
           name: "Gemini 3.1 Flash Lite",
-          note: "en la nube (2026-10-19)",
+          note: "en la nube, prompt del 2026-10-19",
         },
         qwenLocal: {
           name: "Qwen 2.5 7B",
-          note: "corre en tu máquina (2026-10-19)",
+          note: "corre en tu máquina, prompt anterior al 2026-10-21",
         },
       },
     },
