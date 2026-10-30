@@ -20,7 +20,6 @@ export const en = {
     projects: "Featured projects",
     about: "How I got here",
     now: "What I'm working on",
-    other: "Other work",
     contact: "Let's talk",
   },
   theme: { toggle: "Toggle theme" },
@@ -47,7 +46,7 @@ export const en = {
       subtitle: null,
       dates: "August 2026 – September 2026",
       problem:
-        "The inter-university League of Legends tournament (RedUNCI) had no site to follow results, statistics and the state of the tournament.",
+        "The inter-university League of Legends league (RedUNCI) had no site to follow results, statistics and the state of the tournament.",
       bullets: [
         "A project I started on my own as a player in the tournament; it became the official platform.",
         "Standings, fixtures, playoffs and detailed team and player profiles.",
@@ -64,9 +63,9 @@ export const en = {
       subtitle: null,
       dates: "October 2026 – present",
       problem:
-        "What I read and watch (articles, videos) rarely makes it back into what I write.",
+        "What I consume (articles, videos) rarely makes it back into what I write.",
       bullets: [
-        "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault, and with no cloud keys everything runs locally.",
+        "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault.",
         "Two-stage retrieval: a pgvector pre-filter (the 3 closest projects) plus an LLM evaluation that answers with schema-validated JSON; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
         "Per-token cost and latency telemetry; 81 test files, 40 of them against a throwaway PostgreSQL with pgvector in a Testcontainer.",
@@ -143,8 +142,8 @@ export const en = {
     },
     citylab: {
       when: "2023",
-      title: "CityLab Tandil",
-      line: "Features for the Cultural Spaces Map.",
+      title: "CityLab Tandil — MapBox Developer",
+      line: "Features for the Cultural Spaces Map, with the University Center for Citizen Innovation team.",
       photoAlt: null,
     },
     thesisItba: {
@@ -254,14 +253,6 @@ export const en = {
           note: "runs on your machine, prompt before 2026-10-21",
         },
       },
-    },
-  },
-  other: {
-    citylab: {
-      title: "CityLab Tandil — MapBox Developer",
-      dates: "April 2023 – December 2023",
-      description:
-        "Features for the Cultural Spaces Map, with the University Center for Citizen Innovation team.",
     },
   },
   education: {

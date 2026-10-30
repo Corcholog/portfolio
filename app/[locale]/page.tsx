@@ -3,7 +3,6 @@ import { AboutStory, Education } from "@/components/AboutStory";
 import { ContactSection } from "@/components/ContactSection";
 import { Hero } from "@/components/Hero";
 import { NowSection } from "@/components/NowSection";
-import { OtherWork } from "@/components/OtherWork";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -79,9 +78,6 @@ export default async function HomePage({ params }: PageProps) {
         </Section>
         <Section id="now" title={section.now}>
           <NowSection locale={locale} content={content} />
-        </Section>
-        <Section id="other" title={section.other} band>
-          <OtherWork other={content.other} />
         </Section>
         <Section id="contact" title={section.contact}>
           <ContactSection locale={locale} content={content} />

@@ -20,7 +20,6 @@ export const es = {
     projects: "Proyectos destacados",
     about: "Cómo llegué acá",
     now: "En lo que estoy ahora",
-    other: "Otros trabajos",
     contact: "Hablemos",
   },
   theme: { toggle: "Cambiar tema" },
@@ -47,7 +46,7 @@ export const es = {
       subtitle: null,
       dates: "Agosto 2026 – Septiembre 2026",
       problem:
-        "El torneo interuniversitario de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
+        "La liga interuniversitario de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
       bullets: [
         "Proyecto que empecé por mi cuenta como jugador del torneo y que terminó siendo la plataforma oficial.",
         "Tablas, fixtures, playoffs y perfiles detallados de equipos y jugadores.",
@@ -64,9 +63,9 @@ export const es = {
       subtitle: null,
       dates: "Octubre 2026 – presente",
       problem:
-        "Lo que leo y miro (artículos, videos) casi nunca vuelve a lo que escribo.",
+        "Lo que consumo (artículos, videos) casi nunca vuelve a lo que escribo.",
       bullets: [
-        "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault, y sin claves de nube todo corre en local.",
+        "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault.",
         "Retrieval en dos etapas: pre-filtro con pgvector (los 3 proyectos más cercanos) y evaluación con un LLM que responde con JSON validado contra un schema; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
         "Telemetría de costo por token y latencia; 81 archivos de tests, 40 de ellos contra un PostgreSQL throwaway con pgvector en un Testcontainer.",
@@ -143,8 +142,8 @@ export const es = {
     },
     citylab: {
       when: "2023",
-      title: "CityLab Tandil",
-      line: "Funcionalidades para el Mapa de Espacios Culturales.",
+      title: "CityLab Tandil — MapBox Developer",
+      line: "Funcionalidades para el Mapa de Espacios Culturales, con el equipo del Centro Universitario de Innovación Ciudadana.",
       photoAlt: null,
     },
     thesisItba: {
@@ -255,14 +254,6 @@ export const es = {
           note: "corre en tu máquina, prompt anterior al 2026-10-21",
         },
       },
-    },
-  },
-  other: {
-    citylab: {
-      title: "CityLab Tandil — MapBox Developer",
-      dates: "Abril 2023 – Diciembre 2023",
-      description:
-        "Funcionalidades para el Mapa de Espacios Culturales, con el equipo del Centro Universitario de Innovación Ciudadana.",
     },
   },
   education: {

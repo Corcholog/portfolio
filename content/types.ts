@@ -1,4 +1,4 @@
-import type { ModelId, OtherId, ProjectId, TimelineId } from "./shared";
+import type { ModelId, ProjectId, TimelineId } from "./shared";
 
 /**
  * Shape of the site copy. Both `content/es.ts` and `content/en.ts` must satisfy
@@ -54,7 +54,6 @@ export type Content = {
     projects: string;
     about: string;
     now: string;
-    other: string;
     contact: string;
   };
   theme: {
@@ -125,14 +124,6 @@ export type Content = {
       models: Record<ModelId, { name: string; note: string }>;
     };
   };
-  other: Record<
-    OtherId,
-    {
-      title: string;
-      dates: string;
-      description: string;
-    }
-  >;
   education: {
     title: string;
     unicen: string;

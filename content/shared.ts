@@ -143,13 +143,6 @@ export const timelineFacts: Record<TimelineId, TimelineFacts> = {
   today: { icon: "sparkles", photo: null },
 };
 
-export const otherIds = ["citylab"] as const;
-export type OtherId = (typeof otherIds)[number];
-
-export const otherFacts: Record<OtherId, { stack: readonly string[] }> = {
-  citylab: { stack: ["JavaScript", "MapBox.js"] },
-};
-
 export const mmm = {
   name: "My Merry May",
   repo: "https://github.com/Corcholog/mmm-spanish-patch",
