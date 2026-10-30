@@ -43,3 +43,9 @@ jobs:
           # The build reads this for canonical URLs and the sitemap; the default
           # (http://localhost:3000) is fine for a CI build.
           NEXT_PUBLIC_SITE_URL: https://giorgio-loguercio.vercel.app
+
+      - name: Test the built pages
+        run: npm run test:output
+
+      - name: Unit tests
+        run: npm test

@@ -49,6 +49,23 @@ prerendered at build time and served from Vercel.
 | `npm run format`        | Prettier (write)                                       |
 | `npm run check:content` | Checks that both languages match (runs before `build`) |
 
+## Tests
+
+```bash
+npm test          # unit tests: formatting helpers, placeholders and the content invariants
+npm run build     # test:output reads the prerendered pages, so build first
+npm run test:output
+```
+
+`npm test` needs no build: it covers `lib/format.ts`, `lib/placeholders.ts` and the content dictionaries (both
+languages have the same shape, every id exists, no `[TBD: …]` is left, no copy is empty).
+
+`npm run test:output` checks the built `en.html` / `es.html`: `<html lang>`, a single `<h1>`, internal anchors
+resolving to ids, external links with `rel="noopener noreferrer"`, an `alt` on every image, valid JSON-LD matching
+`identity.name`, and the same section ids in both languages. It **fails** (it does not skip) when there is no build.
+
+Both run in CI after `npm run build`.
+
 ## Environment
 
 Nothing is required to build. `NEXT_PUBLIC_SITE_URL` sets the absolute origin used for canonical URLs, `hreflang`

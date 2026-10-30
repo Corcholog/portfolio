@@ -5,7 +5,8 @@ export const es = {
     name: "Giorgio Iván Loguercio",
     roleLine: "Ingeniero de Software · LLM apps, RAG y evals",
     tagline: "Desarrollo apps web e integro LLMs midiendo su calidad.",
-    pageTitle: "Giorgio Loguercio — Ingeniero de Software · LLM apps & full stack",
+    pageTitle:
+      "Giorgio Loguercio — Ingeniero de Software · LLM apps & full stack",
     description:
       "Ingeniero de Software (Ingeniería en Sistemas, UNICEN, 2026) con perfil full stack y de IA aplicada. Desarrollo apps web en producción e integro LLMs midiendo su calidad.",
   },
@@ -46,7 +47,7 @@ export const es = {
       subtitle: null,
       dates: "Agosto 2026 – Septiembre 2026",
       problem:
-        "La liga interuniversitario de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
+        "La liga interuniversitaria de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
       bullets: [
         "Proyecto que empecé por mi cuenta como jugador del torneo y que terminó siendo la plataforma oficial.",
         "Tablas, fixtures, playoffs y perfiles detallados de equipos y jugadores.",
