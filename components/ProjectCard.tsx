@@ -24,7 +24,73 @@ export function ProjectCard({ id, project, ui }: Props) {
   const image = imageFacts ? visible(imageFacts.src) : null;
   const imageAlt = project.imageAlt;
   const hasImage = Boolean(imageFacts && image && imageAlt);
+  const isTextWide = !hasImage;
   const result = visible(project.result);
+
+  const resultChip = result ? (
+    <p className="bg-chip text-chip-text rounded-2xl px-5 py-4 text-sm leading-relaxed">
+      <span className="font-mono text-xs font-medium">
+        {project.resultLabel}
+      </span>
+      <span aria-hidden> · </span>
+      <span className="sr-only">: </span>
+      {result}
+    </p>
+  ) : null;
+
+  const stackList = (
+    <ul className="mt-5 flex flex-wrap gap-1.5">
+      {facts.stack.map((tech) => (
+        <li
+          key={tech}
+          className="bg-chip text-chip-text rounded-full px-3 py-1 font-mono text-xs"
+        >
+          {tech}
+        </li>
+      ))}
+    </ul>
+  );
+
+  const actionLinks = (demo || repo || pdf) && (
+    <ul className="mt-6 flex flex-wrap gap-3">
+      {demo && (
+        <li>
+          <ExternalLink
+            href={demo}
+            newTabLabel={ui.newTab}
+            context={project.title}
+            className={linkClass}
+          >
+            {ui.demo}
+          </ExternalLink>
+        </li>
+      )}
+      {repo && (
+        <li>
+          <ExternalLink
+            href={repo}
+            newTabLabel={ui.newTab}
+            context={project.title}
+            className={linkClass}
+          >
+            {ui.repo}
+          </ExternalLink>
+        </li>
+      )}
+      {pdf && (
+        <li>
+          <ExternalLink
+            href={pdf}
+            newTabLabel={ui.newTab}
+            context={project.title}
+            className={linkClass}
+          >
+            {ui.slides}
+          </ExternalLink>
+        </li>
+      )}
+    </ul>
+  );
 
   return (
     <article
@@ -48,7 +114,7 @@ export function ProjectCard({ id, project, ui }: Props) {
             />
           </div>
         )}
-        <div className={`min-w-0 ${hasImage ? "" : "max-w-3xl"}`}>
+        <div className="min-w-0">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h3 className="font-display flex items-center text-2xl font-medium tracking-tight sm:text-3xl">
               <ChevronRight
@@ -62,71 +128,34 @@ export function ProjectCard({ id, project, ui }: Props) {
           {project.subtitle && (
             <p className="text-muted mt-1 text-sm italic">{project.subtitle}</p>
           )}
-          <p className="mt-4">{project.problem}</p>
-          <ul className="text-muted marker:text-accent mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed">
-            {project.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-          {result && (
-            <p className="bg-chip text-chip-text mt-6 rounded-2xl px-5 py-4 text-sm leading-relaxed">
-              <span className="font-mono text-xs font-medium">
-                {project.resultLabel}
-              </span>
-              <span aria-hidden> · </span>
-              <span className="sr-only">: </span>
-              {result}
-            </p>
-          )}
-          <ul className="mt-5 flex flex-wrap gap-1.5">
-            {facts.stack.map((tech) => (
-              <li
-                key={tech}
-                className="bg-chip text-chip-text rounded-full px-3 py-1 font-mono text-xs"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-          {(demo || repo || pdf) && (
-            <ul className="mt-6 flex flex-wrap gap-3">
-              {demo && (
-                <li>
-                  <ExternalLink
-                    href={demo}
-                    newTabLabel={ui.newTab}
-                    context={project.title}
-                    className={linkClass}
-                  >
-                    {ui.demo}
-                  </ExternalLink>
-                </li>
-              )}
-              {repo && (
-                <li>
-                  <ExternalLink
-                    href={repo}
-                    newTabLabel={ui.newTab}
-                    context={project.title}
-                    className={linkClass}
-                  >
-                    {ui.repo}
-                  </ExternalLink>
-                </li>
-              )}
-              {pdf && (
-                <li>
-                  <ExternalLink
-                    href={pdf}
-                    newTabLabel={ui.newTab}
-                    context={project.title}
-                    className={linkClass}
-                  >
-                    {ui.slides}
-                  </ExternalLink>
-                </li>
-              )}
-            </ul>
+          {isTextWide ? (
+            <div className="mt-4 grid gap-7 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+              <div>
+                <p>{project.problem}</p>
+                <ul className="text-muted marker:text-accent mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                {resultChip}
+                {stackList}
+                {actionLinks}
+              </div>
+            </div>
+          ) : (
+            <>
+              <p className="mt-4">{project.problem}</p>
+              <ul className="text-muted marker:text-accent mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+                {project.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              {resultChip && <div className="mt-6">{resultChip}</div>}
+              {stackList}
+              {actionLinks}
+            </>
           )}
         </div>
       </div>
