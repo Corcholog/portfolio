@@ -16,14 +16,14 @@
     "prebuild": "npm run check:content"
   },
   "dependencies": {
-    "lucide-react": "^1.61.0",
+    "lucide-react": "^1.64.0",
     "next": "16.4.3",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
-    "@types/node": "^20",
+    "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
@@ -33,6 +33,6 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^4.1.12"
+    "vitest": "^5.0.5"
   }
 }
