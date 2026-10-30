@@ -263,12 +263,6 @@ export const en = {
       description:
         "Features for the Cultural Spaces Map, with the University Center for Citizen Innovation team.",
     },
-    followup: {
-      title: "FollowUP — university course project",
-      dates: "March 2025 – April 2025",
-      description:
-        "Full stack app for real-time person detection and tracking across multiple video sources, with pattern analysis and group detection.",
-    },
   },
   education: {
     title: "Education",

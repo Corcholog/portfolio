@@ -143,14 +143,11 @@ export const timelineFacts: Record<TimelineId, TimelineFacts> = {
   today: { icon: "sparkles", photo: null },
 };
 
-export const otherIds = ["citylab", "followup"] as const;
+export const otherIds = ["citylab"] as const;
 export type OtherId = (typeof otherIds)[number];
 
 export const otherFacts: Record<OtherId, { stack: readonly string[] }> = {
   citylab: { stack: ["JavaScript", "MapBox.js"] },
-  followup: {
-    stack: ["Next.js", "React", "FastAPI", "Python", "YOLOv8n", "WebSockets"],
-  },
 };
 
 export const mmm = {

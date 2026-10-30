@@ -264,12 +264,6 @@ export const es = {
       description:
         "Funcionalidades para el Mapa de Espacios Culturales, con el equipo del Centro Universitario de Innovación Ciudadana.",
     },
-    followup: {
-      title: "FollowUP — proyecto de materia universitaria",
-      dates: "Marzo 2025 – Abril 2025",
-      description:
-        "App full stack para detección y seguimiento de personas en tiempo real desde múltiples fuentes de video, con análisis de patrones y detección de grupos.",
-    },
   },
   education: {
     title: "Formación",
