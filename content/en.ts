@@ -73,8 +73,7 @@ export const en = {
       resultLabel: "Result",
       result:
         "On 376 hand-labeled article × project pairs, DeepSeek Flash (the default) is right 95% of the time it says “actionable” and finds 4 extra connections (one labeler; how useful the suggestions are is not measured).",
-      imageAlt:
-        "Rekindle’s web interface in the Suggestions tab, with the demo vault: four projects in the sidebar with their dormancy counters, and a list of pending suggestions, each one with the article it came from, a summary, the note it points at and buttons to discard or integrate it.",
+      imageAlt: null,
     },
     thesis: {
       title: "Thesis — Automatic fall detection",

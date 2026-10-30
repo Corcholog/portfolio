@@ -71,11 +71,10 @@ export const projectFacts: Record<ProjectId, ProjectFacts> = {
     repo: "https://github.com/Corcholog/rekindle",
     demo: null,
     pdf: null,
-    image: {
-      src: "/projects/rekindle-suggestions.webp",
-      width: 1360,
-      height: 1000,
-    },
+    // No card image for now: the app screenshots do not read at card size, and
+    // a readable one needs a 2x capture. The asset is ready in
+    // public/projects/rekindle-suggestion.webp.
+    image: null,
   },
   thesis: {
     stack: ["Python", "TensorFlow", "PyTorch"],

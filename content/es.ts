@@ -74,8 +74,7 @@ export const es = {
       resultLabel: "Resultado",
       result:
         "Sobre 376 pares artículo × proyecto etiquetados a mano, DeepSeek Flash (el modelo por defecto) acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
-      imageAlt:
-        "La interfaz web de Rekindle en la pestaña Suggestions, con el vault de demostración: cuatro proyectos en la barra lateral con sus contadores de abandono, y una lista de sugerencias pendientes, cada una con el artículo del que salió, un resumen, la nota a la que apunta y botones para descartarla o integrarla.",
+      imageAlt: null,
     },
     thesis: {
       title: "Tesis — Detección automática de caídas",
