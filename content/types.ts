@@ -1,4 +1,4 @@
-import type { ModelId, ProjectId, TimelineId } from "./shared";
+import type { ProjectId, TimelineId } from "./shared";
 
 /**
  * Shape of the site copy. Both `content/es.ts` and `content/en.ts` must satisfy
@@ -106,24 +106,15 @@ export type Content = {
         referenceNote: string;
       };
     };
-    rekindle: {
+    flux: {
       title: string;
       intro: string;
-      /** What is being added right now. */
-      text: string;
-      seeProject: string;
-      evalTitle: string;
-      /** Placeholders: `{pairs}`, `{connections}`. */
-      evalCaption: string;
-      columns: {
-        model: string;
-        precision: string;
-        found: string;
-        latency: string;
-      };
-      /** Placeholders: `{found}`, `{total}`, `{extra}`. */
-      found: string;
-      models: Record<ModelId, { name: string; note: string }>;
+      bullets: string[];
+      /** Why there is no repository or website link yet. */
+      status: string;
+      imageAlt: string;
+      /** Says the screenshot uses made-up data. */
+      imageCaption: string;
     };
   };
   education: {

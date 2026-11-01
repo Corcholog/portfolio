@@ -1,10 +1,10 @@
 import type { Content } from "@/content";
-import { mmm } from "@/content/shared";
+import { flux, mmm } from "@/content/shared";
 import { formatProgress } from "@/lib/format";
 import type { Locale } from "@/lib/i18n";
 import { ExternalLink } from "./ExternalLink";
+import { ImageLightbox } from "./ImageLightbox";
 import { Pipeline } from "./Pipeline";
-import { RekindleNow } from "./RekindleNow";
 
 type Props = {
   locale: Locale;
@@ -62,7 +62,41 @@ export function NowSection({ locale, content }: Props) {
         <Pipeline pipeline={now.mmm.pipeline} />
       </div>
 
-      <RekindleNow locale={locale} content={now.rekindle} />
+      <div className="border-line reveal border-t pt-8">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-14">
+          <div>
+            <h3 className="font-display text-2xl font-medium tracking-tight">
+              {now.flux.title}
+            </h3>
+            <p className="mt-3 max-w-prose">{now.flux.intro}</p>
+            <ul className="text-muted marker:text-accent mt-4 max-w-prose list-disc space-y-2 pl-5 text-sm leading-relaxed">
+              {now.flux.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+            <p className="text-muted mt-6 max-w-prose text-sm">
+              {now.flux.status}
+            </p>
+          </div>
+          <figure className="self-start">
+            <div className="border-line bg-card shadow-cozy rounded-2xl border p-2">
+              <ImageLightbox
+                src={flux.image.src}
+                alt={now.flux.imageAlt}
+                width={flux.image.width}
+                height={flux.image.height}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                label={ui.expandImage}
+                closeLabel={ui.close}
+                context={flux.name}
+              />
+            </div>
+            <figcaption className="text-muted mt-2 text-center text-xs">
+              {now.flux.imageCaption}
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   );
 }

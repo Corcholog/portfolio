@@ -20,7 +20,7 @@ export const cvPath = {
 } as const;
 
 /** Date shown in the footer. Update by hand when the site changes. */
-export const lastUpdated = "2026-10-29";
+export const lastUpdated = "2026-11-01";
 
 export const projectIds = ["lide2", "rekindle", "thesis"] as const;
 export type ProjectId = (typeof projectIds)[number];
@@ -150,47 +150,8 @@ export const mmm = {
   progress: { done: 12537, total: 33135, asOf: "2026-10-26" },
 } as const;
 
-export const modelIds = [
-  "currentDefault",
-  "deepseekThinking",
-  "geminiFlashLite",
-  "qwenLocal",
-] as const;
-export type ModelId = (typeof modelIds)[number];
-
-/**
- * Rekindle model comparison on a hand-labeled set of article x project pairs.
- *
- * The numbers are the ones published in the repository's README, so both
- * surfaces say the same thing:
- * - `currentDefault` is the default since 2026-10-23 (it reasons before its
- *   verdict and matches long notes section by section).
- * - `deepseekThinking` and `geminiFlashLite` were measured with the prompt of
- *   2026-10-19.
- * - `qwenLocal` was measured with the prompt from before the structured text
- *   (2026-10-21) and was not repeated.
- *
- * `precision` is how often the model was right when it said "actionable"; `found`
- * counts real connections found out of `connections`; `extra` are additional
- * links it proposed. Source: the project's evaluation report.
- */
-export const rekindleEval = {
-  pairs: 376,
-  connections: 56,
-  models: {
-    currentDefault: { precision: 0.95, found: 35, extra: 4, latency: 1.8 },
-    deepseekThinking: { precision: 0.79, found: 49, extra: 26, latency: 4.1 },
-    geminiFlashLite: { precision: 0.64, found: 49, extra: 25, latency: 4.4 },
-    qwenLocal: { precision: 1, found: 30, extra: 9, latency: 7.2 },
-  },
-  /** The model Rekindle uses by default (highlighted in the table). */
-  defaultModel: "currentDefault",
-} as const satisfies {
-  pairs: number;
-  connections: number;
-  models: Record<
-    ModelId,
-    { precision: number; found: number; extra: number; latency: number }
-  >;
-  defaultModel: ModelId;
-};
+export const flux = {
+  name: "Flux",
+  /** Screenshot of the browser demo with made-up data (never real finances). */
+  image: { src: "/projects/flux-dashboard.webp", width: 1920, height: 1200 },
+} as const;

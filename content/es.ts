@@ -46,14 +46,14 @@ export const es = {
   projects: {
     lide2: {
       title: "LIDE 2",
-      subtitle: null,
-      dates: "Agosto 2026 – Septiembre 2026",
+      subtitle: "Pasantía en UNLP Esports",
+      dates: "Julio 2026 – Octubre 2026",
       problem:
         "La liga interuniversitaria de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
       bullets: [
-        "Proyecto que empecé por mi cuenta como jugador del torneo y que terminó siendo la plataforma oficial.",
-        "Tablas, fixtures, playoffs y perfiles detallados de equipos y jugadores.",
-        "Parser de replays de partidas y estadísticas como las de sitios profesionales (por ejemplo gol.gg), útiles para que los jugadores analicen su juego.",
+        "Desarrollado durante mi pasantía en UNLP Esports, dentro de la Diplomatura en Deportes Electrónicos de la UNLP, en comunicación con UNLP Esports durante todo el desarrollo.",
+        "Tablas, fixtures, playoffs, perfiles detallados de equipos y jugadores, y estadísticas por partida, jugador, campeón y universidad, a disposición de la organización y de los jugadores.",
+        "La API de Riot para desarrollo ya no entrega estadísticas de partidas personalizadas, así que las extraigo parseando directamente los archivos de replay .rofl, con estadísticas como las de sitios profesionales (por ejemplo gol.gg) para que los jugadores analicen su juego.",
         "En producción en Vercel, con Supabase y Row-Level Security.",
       ],
       resultLabel: "Alcance",
@@ -223,40 +223,20 @@ export const es = {
           "El parche no oficial en inglés se usa solo como referencia de significado.",
       },
     },
-    rekindle: {
-      title: "Rekindle",
+    flux: {
+      title: "Flux — flujo de caja personal, con un servidor MCP",
       intro:
-        "Asistente local-first que conecta lo que leo con lo que escribo: compara artículos y videos contra los proyectos y notas de mi vault de Obsidian y propone acciones.",
-      text: "Lo mido contra un conjunto etiquetado a mano en lugar de fiarme de demos. Últimamente dividí las notas largas por encabezados y probé que el modelo razone antes de dar el veredicto: las conexiones de más bajaron de 22 a 4, a cambio de algo de recall.",
-      seeProject: "Ver el proyecto",
-      evalTitle: "¿Qué modelo encuentra las conexiones?",
-      evalCaption:
-        "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23). Gemini y la corrida con thinking usan el prompt del 2026-10-19; la de Qwen local usa el prompt anterior al texto estructurado (2026-10-21) y no se repitió. Sin chunking y con el veredicto primero, el mismo modelo por defecto encontró 42 conexiones con 19 de más. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
-      columns: {
-        model: "Modelo",
-        precision: "Acierta cuando dice «accionable»",
-        found: "Conexiones encontradas",
-        latency: "Latencia mediana",
-      },
-      found: "{found} de {total} (+{extra} extra)",
-      models: {
-        currentDefault: {
-          name: "DeepSeek Flash",
-          note: "por defecto hoy, razona antes del veredicto (2026-10-23)",
-        },
-        deepseekThinking: {
-          name: "DeepSeek Flash",
-          note: "con thinking, prompt del 2026-10-19",
-        },
-        geminiFlashLite: {
-          name: "Gemini 3.1 Flash Lite",
-          note: "en la nube, prompt del 2026-10-19",
-        },
-        qwenLocal: {
-          name: "Qwen 2.5 7B",
-          note: "corre en tu máquina, prompt anterior al 2026-10-21",
-        },
-      },
+        "Una app de escritorio local-first que proyecta mi flujo de caja a 90 días, más un servidor MCP para que mi agente Hermes pueda leer y modificar los mismos datos. Le pregunto a Hermes desde la computadora o desde Telegram, por ejemplo cuánto me queda en el mes o si puedo comprar algo.",
+      bullets: [
+        "Una app de escritorio con Tauri y React y el servidor MCP comparten un mismo archivo SQLite y un mismo motor financiero, así que lo que cambia Hermes se ve en la app.",
+        "El servidor MCP expone 15 herramientas por stdio, y un archivo de skill le indica a Hermes que lea el saldo actual antes de dar cualquier consejo.",
+        "Los ingresos suelen llegar en un día incierto, así que cada ingreso tiene una ventana (por ejemplo del 10 al 15) mientras que los gastos tienen fechas fijas. La proyección dibuja dos caminos: uno optimista, donde el dinero llega al inicio de la ventana, y uno conservador, donde llega al final, y las alertas usan el conservador.",
+      ],
+      status:
+        "Por ahora es privado: todavía no tiene repositorio ni sitio. La captura usa datos de demostración inventados.",
+      imageAlt:
+        "El panel de Flux en modo oscuro con datos de demostración: saldo real, neto del mes, próximo cuello de botella, un gráfico de flujo de caja a 90 días y los ingresos y pagos de los próximos 15 días.",
+      imageCaption: "Panel de Flux con datos de demostración",
     },
   },
   education: {

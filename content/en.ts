@@ -45,14 +45,14 @@ export const en = {
   projects: {
     lide2: {
       title: "LIDE 2",
-      subtitle: null,
-      dates: "August 2026 – September 2026",
+      subtitle: "Internship at UNLP Esports",
+      dates: "July 2026 – October 2026",
       problem:
         "The inter-university League of Legends league (RedUNCI) had no site to follow results, statistics and the state of the tournament.",
       bullets: [
-        "A project I started on my own as a player in the tournament; it became the official platform.",
-        "Standings, fixtures, playoffs and detailed team and player profiles.",
-        "Match replay parser and statistics like those on professional sites (e.g. gol.gg), useful for players to analyse their play.",
+        "Built during my internship at UNLP Esports, within the UNLP Diploma in Esports, in communication with UNLP Esports throughout the development.",
+        "Standings, fixtures, playoffs, detailed team and player profiles, and statistics per match, player, champion and university, available to the organisers and the players.",
+        "Riot's development API no longer provides custom-match statistics, so I extract them by parsing the .rofl replay files directly, with statistics like those on professional sites (e.g. gol.gg) for players to analyse their play.",
         "In production on Vercel, with Supabase and Row-Level Security.",
       ],
       resultLabel: "Scope",
@@ -221,40 +221,20 @@ export const en = {
           "The unofficial English patch is used only as a reference for meaning.",
       },
     },
-    rekindle: {
-      title: "Rekindle",
+    flux: {
+      title: "Flux — personal cash flow, with an MCP server",
       intro:
-        "A local-first assistant that connects what I read with what I write: it compares articles and videos against the projects and notes in my Obsidian vault and proposes actions.",
-      text: "I measure it against my own hand-labeled set instead of trusting demos. Lately I've been splitting long notes by headings and testing whether making the model reason before its verdict helps: extra connections dropped from 22 to 4, at some cost in recall.",
-      seeProject: "See the project",
-      evalTitle: "Which model finds the connections?",
-      evalCaption:
-        "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23). Gemini and the thinking-on run use the prompt of 2026-10-19; the local Qwen run uses the prompt from before 2026-10-21 and was not repeated. Without chunking and with the verdict first, the same default found 42 connections with 19 extra. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
-      columns: {
-        model: "Model",
-        precision: "Right when it says “actionable”",
-        found: "Connections found",
-        latency: "Median latency",
-      },
-      found: "{found} of {total} (+{extra} extra)",
-      models: {
-        currentDefault: {
-          name: "DeepSeek Flash",
-          note: "default now, reasons before the verdict (2026-10-23)",
-        },
-        deepseekThinking: {
-          name: "DeepSeek Flash",
-          note: "thinking on, prompt of 2026-10-19",
-        },
-        geminiFlashLite: {
-          name: "Gemini 3.1 Flash Lite",
-          note: "cloud, prompt of 2026-10-19",
-        },
-        qwenLocal: {
-          name: "Qwen 2.5 7B",
-          note: "runs on your machine, prompt before 2026-10-21",
-        },
-      },
+        "A local-first desktop app that projects my cash flow 90 days ahead, plus an MCP server so my Hermes agent can read and update the same data. I ask Hermes from my desktop or from Telegram, for example how much I have left this month or whether I can afford something.",
+      bullets: [
+        "A Tauri and React desktop app and the MCP server share one SQLite file and one financial engine, so what Hermes changes shows up in the app.",
+        "The MCP server exposes 15 tools over stdio, and a skill file tells Hermes to read the current balance before it gives any advice.",
+        "Income often arrives on an uncertain day, so each income has a window (say the 10th to the 15th) while bills have fixed dates. The projection draws two paths: an optimistic one where the money arrives at the start of the window and a conservative one where it arrives at the end, and the warnings use the conservative one.",
+      ],
+      status:
+        "Private for now: there is no repository or website yet. The screenshot uses made-up demo data.",
+      imageAlt:
+        "The Flux dashboard in dark mode with demo data: real balance, net this month, next bottleneck, a 90-day cash-flow chart and the next 15 days of income and payments.",
+      imageCaption: "Flux dashboard with demo data",
     },
   },
   education: {

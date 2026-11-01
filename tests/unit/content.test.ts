@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getContent } from "@/content";
-import { modelIds, projectIds, timelineIds } from "@/content/shared";
+import { projectIds, timelineIds } from "@/content/shared";
 import { locales } from "@/lib/i18n";
 import { describeShape, findPlaceholders } from "@/lib/placeholders";
 
@@ -31,7 +31,7 @@ describe("content dictionaries", () => {
     expect([...enShape].sort()).toEqual([...esShape].sort());
   });
 
-  it("every project, timeline and model id exists in both languages", () => {
+  it("every project and timeline id exists in both languages", () => {
     const missing: string[] = [];
 
     for (const locale of locales) {
@@ -45,11 +45,6 @@ describe("content dictionaries", () => {
       for (const id of timelineIds) {
         if (!(id in content.timeline)) {
           missing.push(`${locale}: timeline.${id}`);
-        }
-      }
-      for (const id of modelIds) {
-        if (!(id in content.now.rekindle.models)) {
-          missing.push(`${locale}: now.rekindle.models.${id}`);
         }
       }
     }
