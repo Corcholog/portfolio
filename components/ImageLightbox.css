@@ -1,0 +1,67 @@
+/* Shared-element morph for project screenshots */
+::view-transition-group(project-screenshot) {
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+}
+
+::view-transition-old(project-screenshot),
+::view-transition-new(project-screenshot) {
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+}
+
+::view-transition-image-pair(project-screenshot) {
+  isolation: isolate;
+}
+
+/* Stop the root group from crossfading/sliding. We only want the named
+   project-screenshot element to morph; the rest of the page should show the
+   post-transition state immediately so there is no ghost dialog or page slide. */
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  display: none;
+}
+
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* Fallback entrance/exit only for browsers without View Transitions API.
+   When view transitions are supported, the dialog snaps to display:none and
+   the snapshot animation does all the work. */
+@supports not (view-transition-name: none) {
+  dialog.image-lightbox {
+    transition:
+      opacity 300ms ease-out,
+      transform 300ms ease-out,
+      overlay 300ms ease-out allow-discrete,
+      display 300ms ease-out allow-discrete;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @starting-style {
+    dialog.image-lightbox[open] {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  dialog.image-lightbox:not([open]) {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.image-lightbox,
+  dialog.image-lightbox[open],
+  dialog.image-lightbox:not([open]) {
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

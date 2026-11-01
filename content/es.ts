@@ -34,6 +34,8 @@ export const es = {
     builtWith: "Hecho con Next.js",
     newTab: "se abre en una pestaña nueva",
     skip: "Saltar al contenido",
+    expandImage: "Ver tamaño completo",
+    close: "Cerrar",
   },
   hero: {
     location: "Necochea, Argentina · Disponible para trabajo remoto",
@@ -74,7 +76,8 @@ export const es = {
       resultLabel: "Resultado",
       result:
         "Sobre 376 pares artículo × proyecto etiquetados a mano, DeepSeek Flash (el modelo por defecto) acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
-      imageAlt: null,
+      imageAlt:
+        "Vista de Sugerencias de Rekindle en modo oscuro: una barra lateral con los proyectos del vault y cuánto hace que se trabajó en cada uno, pestañas para filtrar las sugerencias (no descartadas, accionables, tentativas, aceptadas, descartadas) y una tarjeta de sugerencia con una lista numerada de acciones a realizar en notas concretas.",
     },
     thesis: {
       title: "Tesis — Detección automática de caídas",

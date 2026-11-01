@@ -71,6 +71,8 @@ export type Content = {
     builtWith: string;
     newTab: string;
     skip: string;
+    expandImage: string;
+    close: string;
   };
   hero: {
     location: string;

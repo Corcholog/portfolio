@@ -33,6 +33,8 @@ export const en = {
     builtWith: "Built with Next.js",
     newTab: "opens in a new tab",
     skip: "Skip to content",
+    expandImage: "View full size",
+    close: "Close",
   },
   hero: {
     location: "Necochea, Argentina · Open to remote work",
@@ -73,7 +75,8 @@ export const en = {
       resultLabel: "Result",
       result:
         "On 376 hand-labeled article × project pairs, DeepSeek Flash (the default) is right 95% of the time it says “actionable” and finds 4 extra connections (one labeler; how useful the suggestions are is not measured).",
-      imageAlt: null,
+      imageAlt:
+        "Rekindle’s Suggestions view in dark mode: a sidebar listing the vault’s projects with how recently each was worked on, tabs to filter suggestions (not discarded, actionable, tentative, accepted, discarded) and a suggestion card with a list of numbered actions to take in specific notes. The interface is in Spanish.",
     },
     thesis: {
       title: "Thesis — Automatic fall detection",

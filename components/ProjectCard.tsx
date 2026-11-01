@@ -1,10 +1,10 @@
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import type { Content, ProjectContent } from "@/content";
 import type { ProjectId } from "@/content/shared";
 import { projectFacts } from "@/content/shared";
 import { visible } from "@/lib/placeholders";
 import { ExternalLink } from "./ExternalLink";
+import { ImageLightbox } from "./ImageLightbox";
 
 type Props = {
   id: ProjectId;
@@ -26,7 +26,6 @@ export function ProjectCard({ id, project, ui }: Props) {
   const hasImage = Boolean(imageFacts && image && imageAlt);
   const isTextWide = !hasImage;
   const result = visible(project.result);
-
   const resultChip = result ? (
     <p className="bg-chip text-chip-text rounded-2xl px-5 py-4 text-sm leading-relaxed">
       <span className="font-mono text-xs font-medium">
@@ -104,13 +103,15 @@ export function ProjectCard({ id, project, ui }: Props) {
       >
         {imageFacts && image && imageAlt && (
           <div className="border-line bg-card shadow-cozy self-start rounded-2xl border p-2">
-            <Image
+            <ImageLightbox
               src={image}
               alt={imageAlt}
               width={imageFacts.width}
               height={imageFacts.height}
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="h-auto w-full rounded-xl"
+              label={ui.expandImage}
+              closeLabel={ui.close}
+              context={project.title}
             />
           </div>
         )}
