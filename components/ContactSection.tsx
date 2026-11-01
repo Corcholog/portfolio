@@ -10,7 +10,7 @@ type Props = {
 };
 
 const outlineButton =
-  "border-line-strong hover:bg-chip hover:border-ink inline-flex min-h-12 items-center gap-1.5 rounded-full border px-6 text-base font-medium motion-safe:transition-colors";
+  "border-line-strong hover:bg-chip hover:border-ink active:bg-chip inline-flex min-h-12 items-center gap-1.5 rounded-full border px-6 text-base font-medium motion-safe:transition motion-safe:active:scale-[0.98]";
 
 export function ContactSection({ locale, content }: Props) {
   const { contact, hero, ui } = content;
@@ -23,7 +23,7 @@ export function ContactSection({ locale, content }: Props) {
       <p className="mt-5">
         <a
           href={`mailto:${identity.email}`}
-          className="text-accent inline-flex min-h-11 items-center gap-2 font-mono text-base break-all underline underline-offset-4 sm:text-lg"
+          className="text-accent inline-flex min-h-11 items-center gap-2 font-mono text-base break-all underline underline-offset-4 motion-safe:transition motion-safe:active:scale-[0.98] sm:text-lg"
         >
           <Mail aria-hidden className="size-5 shrink-0" />
           {identity.email}
@@ -34,7 +34,7 @@ export function ContactSection({ locale, content }: Props) {
           <a
             href={cvPath[locale]}
             download
-            className="bg-accent text-on-accent shadow-cozy hover:shadow-lift inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5"
+            className="bg-accent text-on-accent shadow-cozy hover:shadow-lift active:bg-accent/90 inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5 motion-safe:active:scale-[0.98]"
           >
             <Download aria-hidden className="size-4" />
             {ui.cv}

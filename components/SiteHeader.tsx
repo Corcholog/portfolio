@@ -27,13 +27,13 @@ export function SiteHeader({ locale, content }: Props) {
         >
           <span
             aria-hidden
-            className="bg-accent text-on-accent shadow-cozy hidden size-9 shrink-0 place-items-center rounded-xl sm:grid"
+            className="bg-accent text-on-accent shadow-cozy grid size-8 shrink-0 place-items-center rounded-xl sm:size-9"
           >
             <svg viewBox="0 0 24 24" className="size-4" fill="currentColor">
               <path d="M12 3 21 12 12 21 3 12Z" />
             </svg>
           </span>
-          <span className="font-display text-sm font-medium min-[361px]:text-base sm:text-xl">
+          <span className="font-display text-sm font-medium sm:text-xl">
             {meta.name}
           </span>
         </a>

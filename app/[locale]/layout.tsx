@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { InlineScript } from "@/components/InlineScript";
 import { getContent } from "@/content";
@@ -47,10 +47,6 @@ export async function generateMetadata({
     twitter: { card: "summary_large_image" },
   };
 }
-
-export const viewport: Viewport = {
-  themeColor: "#1c1114",
-};
 
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { locale } = await params;

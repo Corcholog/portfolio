@@ -82,6 +82,14 @@
   --animate-float-slow: float 13s ease-in-out infinite reverse;
 }
 
+/* Scale extension, not a token indirection, so it lives in a plain `@theme`
+   block: inline mode only resolves `var()` references. 22.5rem = 360px, the
+   narrowest phone width this design targets; Tailwind sorts breakpoints, so
+   `xs:` sits below `sm:` without any extra ordering. */
+@theme {
+  --breakpoint-xs: 22.5rem;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;

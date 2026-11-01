@@ -13,7 +13,7 @@ type Props = {
 };
 
 const linkClass =
-  "border-line-strong hover:bg-chip hover:border-ink inline-flex min-h-11 items-center gap-1 rounded-full border px-5 text-sm font-medium motion-safe:transition-colors";
+  "border-line-strong hover:bg-chip hover:border-ink active:bg-chip inline-flex min-h-11 items-center gap-1 rounded-full border px-5 text-sm font-medium motion-safe:transition motion-safe:active:scale-[0.98]";
 
 export function ProjectCard({ id, project, ui }: Props) {
   const facts = projectFacts[id];

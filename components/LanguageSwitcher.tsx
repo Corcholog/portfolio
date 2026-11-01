@@ -54,7 +54,7 @@ export function LanguageSwitcher({ current, label }: Props) {
               hrefLang={locale}
               aria-current={locale === current ? "true" : undefined}
               onClick={(event) => switchTo(locale, event)}
-              className="text-muted hover:bg-card hover:text-ink aria-[current=true]:bg-card aria-[current=true]:text-accent aria-[current=true]:shadow-cozy inline-flex min-h-8 min-w-8 items-center justify-center rounded-full px-1 font-mono text-sm font-medium uppercase motion-safe:transition-colors min-[360px]:min-w-9 min-[360px]:px-2 sm:min-h-10 sm:min-w-11 sm:text-base"
+              className="text-muted hover:bg-card hover:text-ink aria-[current=true]:bg-card aria-[current=true]:text-accent aria-[current=true]:shadow-cozy xs:px-2 inline-flex min-h-10 min-w-10 items-center justify-center rounded-full px-1 font-mono text-sm font-medium uppercase motion-safe:transition motion-safe:active:scale-[0.98] sm:min-w-11 sm:text-base"
             >
               {locale}
             </a>

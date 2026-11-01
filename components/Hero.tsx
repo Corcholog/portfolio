@@ -1,4 +1,4 @@
-import { Download, Mail } from "lucide-react";
+import { Download } from "lucide-react";
 import Image from "next/image";
 import type { Content } from "@/content";
 import { cvPath, identity } from "@/content/shared";
@@ -11,7 +11,7 @@ type Props = {
 };
 
 const outlineButton =
-  "border-line-strong bg-card/70 hover:bg-card hover:border-ink inline-flex min-h-12 items-center gap-1.5 rounded-full border px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5";
+  "border-line-strong bg-card/70 hover:bg-card hover:border-ink active:bg-card inline-flex min-h-12 items-center gap-1.5 rounded-full border px-6 text-base font-medium motion-safe:transition motion-safe:active:scale-[0.98] motion-safe:hover:-translate-y-0.5";
 
 export function Hero({ locale, content }: Props) {
   const { meta, hero, ui } = content;
@@ -62,12 +62,12 @@ export function Hero({ locale, content }: Props) {
         />
         {hero.location}
       </p>
-      <ul className="mt-9 flex flex-wrap gap-3">
+      <ul className="mt-9 flex flex-wrap items-center gap-3">
         <li>
           <a
             href={cvPath[locale]}
             download
-            className="bg-accent text-on-accent shadow-cozy hover:shadow-lift inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5"
+            className="bg-accent text-on-accent shadow-cozy hover:shadow-lift active:bg-accent/90 inline-flex min-h-12 items-center gap-2 rounded-full px-6 text-base font-medium motion-safe:transition motion-safe:hover:-translate-y-0.5 motion-safe:active:scale-[0.98]"
           >
             <Download aria-hidden className="size-[18px]" />
             {ui.cv}
@@ -81,21 +81,6 @@ export function Hero({ locale, content }: Props) {
           >
             {hero.github}
           </ExternalLink>
-        </li>
-        <li>
-          <ExternalLink
-            href={identity.linkedin}
-            newTabLabel={ui.newTab}
-            className={outlineButton}
-          >
-            {hero.linkedin}
-          </ExternalLink>
-        </li>
-        <li>
-          <a href={`mailto:${identity.email}`} className={outlineButton}>
-            <Mail aria-hidden className="size-[18px]" />
-            {hero.email}
-          </a>
         </li>
       </ul>
     </section>

@@ -64,7 +64,7 @@ export function NavLinks({ links, label }: Props) {
             <a
               href={`#${link.id}`}
               aria-current={active === link.id ? "location" : undefined}
-              className="text-muted hover:bg-card hover:text-ink aria-[current=location]:bg-accent aria-[current=location]:text-on-accent aria-[current=location]:shadow-cozy flex min-h-9 items-center justify-center rounded-full px-1 text-[13px] font-medium whitespace-nowrap motion-safe:transition-colors min-[360px]:px-3 min-[360px]:text-sm sm:min-h-11 sm:px-5 sm:text-base"
+              className="text-muted hover:bg-card hover:text-ink aria-[current=location]:bg-accent aria-[current=location]:text-on-accent aria-[current=location]:shadow-cozy xs:px-3 flex min-h-9 items-center justify-center rounded-full px-1 text-sm font-medium whitespace-nowrap motion-safe:transition motion-safe:active:scale-[0.98] sm:min-h-11 sm:px-5 sm:text-base"
             >
               {link.label}
             </a>
