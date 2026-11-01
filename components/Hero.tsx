@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import Image from "next/image";
 import type { Content } from "@/content";
 import { cvPath, identity } from "@/content/shared";
@@ -81,6 +81,21 @@ export function Hero({ locale, content }: Props) {
           >
             {hero.github}
           </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink
+            href={identity.linkedin}
+            newTabLabel={ui.newTab}
+            className={outlineButton}
+          >
+            {hero.linkedin}
+          </ExternalLink>
+        </li>
+        <li>
+          <a href={`mailto:${identity.email}`} className={outlineButton}>
+            <Mail aria-hidden className="size-[18px]" />
+            {hero.email}
+          </a>
         </li>
       </ul>
     </section>
