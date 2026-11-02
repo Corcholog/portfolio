@@ -72,7 +72,7 @@ export const es = {
         "Asistente local-first: ingesta artículos web y videos de YouTube, los resume, los compara contra los proyectos y notas de un vault de Obsidian y propone acciones. Solo las sugerencias aceptadas se escriben al vault.",
         "Retrieval en dos etapas: pre-filtro con pgvector (los 3 proyectos más cercanos) y evaluación con un LLM que responde con JSON validado contra un schema; cadena de proveedores con fallback (DeepSeek, Gemini, Ollama local) y detección de sugerencias desactualizadas por vector drift.",
         "Eval harness propio con dataset etiquetado a mano: Precision@K, Recall@K, F1 y quality gates que detectan regresiones al cambiar prompts o modelos.",
-        "Telemetría de costo por token y latencia; 81 archivos de tests, 40 de ellos contra un PostgreSQL throwaway con pgvector en un Testcontainer.",
+        "Telemetría de costo por token y latencia; tests de integración contra un PostgreSQL + pgvector real en un Testcontainer, más typecheck, lint y auditoría de dependencias en CI.",
       ],
       resultLabel: "Resultado",
       result:

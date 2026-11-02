@@ -71,7 +71,7 @@ export const en = {
         "Local-first assistant: it ingests web articles and YouTube videos, summarizes them, compares them against the projects and notes in an Obsidian vault and proposes actions. Only accepted suggestions are written back to the vault.",
         "Two-stage retrieval: a pgvector pre-filter (the 3 closest projects) plus an LLM evaluation that answers with schema-validated JSON; provider chain with fallback (DeepSeek, Gemini, local Ollama) and stale-suggestion detection via vector drift.",
         "Custom eval harness with a hand-labeled dataset: Precision@K, Recall@K, F1 and quality gates that catch regressions when prompts or models change.",
-        "Per-token cost and latency telemetry; 81 test files, 40 of them against a throwaway PostgreSQL with pgvector in a Testcontainer.",
+        "Per-token cost and latency telemetry; integration tests against a real PostgreSQL + pgvector in a Testcontainer, with typecheck, lint and dependency audit in CI.",
       ],
       resultLabel: "Result",
       result:
