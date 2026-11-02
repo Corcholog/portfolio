@@ -76,7 +76,7 @@ export const es = {
       ],
       resultLabel: "Resultado",
       result:
-        "Sobre 376 pares artículo × proyecto etiquetados a mano, DeepSeek Flash (el modelo por defecto) acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones de más (un solo etiquetador; la utilidad de las sugerencias no está medida).",
+        "Sobre 376 pares artículo × proyecto etiquetados a mano, DeepSeek Flash (el modelo por defecto) acierta el 95% de las veces que dice «accionable» y encuentra 4 conexiones extra (un solo etiquetador; la utilidad de las sugerencias no está medida).",
       imageAlt:
         "Vista de Sugerencias de Rekindle en modo oscuro: una barra lateral con los proyectos del vault y cuánto hace que se trabajó en cada uno, pestañas para filtrar las sugerencias (no descartadas, accionables, tentativas, aceptadas, descartadas) y una tarjeta de sugerencia con una lista numerada de acciones a realizar en notas concretas.",
     },
@@ -245,6 +245,8 @@ export const es = {
     title: "¿Qué modelo encuentra las conexiones?",
     definitions:
       "Precisión: de los pares que llama «accionables», cuántos lo son de verdad. Recall (sensibilidad): de los pares que de verdad son accionables, cuántos encuentra.",
+    choice:
+      "Por qué el modelo por defecto es el que encuentra menos: con el veredicto primero encontraba 44 conexiones con 22 extra, y 14 de sus 39 veredictos «tentativos» terminaban diciendo que no hay conexión. Razonando primero, las extra bajan a 4, a costa de 9 conexiones reales.",
     caption:
       "{pairs} pares artículo × proyecto etiquetados a mano, {connections} de ellos conexiones reales. Qué cuenta como conexión es en parte subjetivo, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
     columns: {

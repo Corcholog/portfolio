@@ -243,6 +243,8 @@ export const en = {
     title: "Which model finds the connections?",
     definitions:
       "Precision: of the pairs it calls “actionable”, how many really are. Recall (sensitivity): of the pairs that really are actionable, how many it finds.",
+    choice:
+      "Why the default is the row that finds fewer: with the verdict first it found 44 connections with 22 extra, and 14 of its 39 “tentative” verdicts then wrote that nothing connects. Reasoning first cuts the extras to 4, at the cost of 9 real connections.",
     caption:
       "{pairs} article × project pairs labeled by hand, {connections} of them real connections. What counts as a connection is partly subjective, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
     columns: {

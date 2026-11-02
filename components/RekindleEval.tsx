@@ -141,6 +141,9 @@ export function RekindleEval({ locale, content }: Props) {
         {content.definitions}
       </p>
       <p className="text-muted mt-3 text-sm leading-relaxed">
+        {content.choice}
+      </p>
+      <p className="text-muted mt-3 text-sm leading-relaxed">
         {fillTemplate(content.caption, { pairs, connections })}
       </p>
     </details>

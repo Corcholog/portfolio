@@ -123,6 +123,8 @@ export type Content = {
     title: string;
     /** What precision and recall mean here. */
     definitions: string;
+    /** Why the default is the row with the lowest recall. */
+    choice: string;
     /** Placeholders: `{pairs}`, `{connections}`. */
     caption: string;
     columns: {
