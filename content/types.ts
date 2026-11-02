@@ -121,11 +121,17 @@ export type Content = {
   evaluation: {
     summary: string;
     title: string;
+    /** What precision and recall mean here. */
+    definitions: string;
     /** Placeholders: `{pairs}`, `{connections}`. */
     caption: string;
     columns: {
       model: string;
+      /** Names of the two metrics, shown above their descriptions. */
+      precisionTerm: string;
       precision: string;
+      recallTerm: string;
+      recall: string;
       found: string;
       latency: string;
     };

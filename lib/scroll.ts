@@ -5,7 +5,9 @@
  * section is at the top of the screen and how far into it we are (a fraction,
  * because the same section has a slightly different height in the other
  * language). `scrollRestoreScript` runs at the end of the next page's body and
- * scrolls to the same place. Storage is per tab and read once.
+ * scrolls to the same place. Open <details> panels (those with an id) are stored
+ * too and reopened first, so the layout matches before scrolling. Storage is per
+ * tab and read once.
  */
 
 const KEY = "scroll-restore";
@@ -32,9 +34,12 @@ export function saveScrollPosition(): boolean {
       1,
       Math.max(0, (READING_LINE - rect.top) / rect.height),
     );
+    const open = Array.from(
+      document.querySelectorAll<HTMLDetailsElement>("details[id][open]"),
+    ).map((details) => details.id);
     sessionStorage.setItem(
       KEY,
-      JSON.stringify({ id: current.id, f: fraction }),
+      JSON.stringify({ id: current.id, f: fraction, d: open }),
     );
     return true;
   } catch {
@@ -43,4 +48,4 @@ export function saveScrollPosition(): boolean {
 }
 
 /** Inline script (plain JS) that undoes `saveScrollPosition` on the new page. */
-export const scrollRestoreScript = `try{var r=sessionStorage.getItem("${KEY}");if(r){sessionStorage.removeItem("${KEY}");var p=JSON.parse(r);var go=function(){var s=document.getElementById(p.id);if(!s)return;var b=s.getBoundingClientRect();window.scrollTo({top:Math.max(0,b.top+window.scrollY+p.f*b.height-${READING_LINE}),behavior:"instant"})};go();addEventListener("load",go)}}catch(e){}`;
+export const scrollRestoreScript = `try{var r=sessionStorage.getItem("${KEY}");if(r){sessionStorage.removeItem("${KEY}");var p=JSON.parse(r);(p.d||[]).forEach(function(i){var e=document.getElementById(i);if(e)e.open=true});var go=function(){var s=document.getElementById(p.id);if(!s)return;var b=s.getBoundingClientRect();window.scrollTo({top:Math.max(0,b.top+window.scrollY+p.f*b.height-${READING_LINE}),behavior:"instant"})};go();addEventListener("load",go)}}catch(e){}`;

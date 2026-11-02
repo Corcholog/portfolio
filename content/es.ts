@@ -243,11 +243,16 @@ export const es = {
   evaluation: {
     summary: "Cómo lo medí: comparación de modelos",
     title: "¿Qué modelo encuentra las conexiones?",
+    definitions:
+      "Precisión: de los pares que llama «accionables», cuántos lo son de verdad. Recall (sensibilidad): de los pares que de verdad son accionables, cuántos encuentra.",
     caption:
-      "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23). Gemini y la corrida con thinking usan el prompt del 2026-10-19; la de Qwen local usa el prompt anterior al texto estructurado (2026-10-21) y no se repitió. Sin chunking y con el veredicto primero, el mismo modelo por defecto encontró 42 conexiones con 19 de más. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
+      "{pairs} pares artículo × proyecto etiquetados a mano, {connections} de ellos conexiones reales. Qué cuenta como conexión es en parte subjetivo, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
     columns: {
       model: "Modelo",
+      precisionTerm: "Precisión",
       precision: "Acierta cuando dice «accionable»",
+      recallTerm: "Recall (sensibilidad)",
+      recall: "Pares «accionables» que encuentra",
       found: "Conexiones encontradas",
       latency: "Latencia mediana",
     },

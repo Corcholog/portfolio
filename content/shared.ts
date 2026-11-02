@@ -184,10 +184,34 @@ export const rekindleEval = {
   pairs: 376,
   connections: 56,
   models: {
-    currentDefault: { precision: 0.95, found: 35, extra: 4, latency: 1.8 },
-    deepseekThinking: { precision: 0.79, found: 49, extra: 26, latency: 4.1 },
-    geminiFlashLite: { precision: 0.64, found: 49, extra: 25, latency: 4.4 },
-    qwenLocal: { precision: 1, found: 30, extra: 9, latency: 7.2 },
+    currentDefault: {
+      precision: 0.95,
+      recall: 0.6,
+      found: 35,
+      extra: 4,
+      latency: 1.8,
+    },
+    deepseekThinking: {
+      precision: 0.79,
+      recall: 0.89,
+      found: 49,
+      extra: 26,
+      latency: 4.1,
+    },
+    geminiFlashLite: {
+      precision: 0.64,
+      recall: 0.91,
+      found: 49,
+      extra: 25,
+      latency: 4.4,
+    },
+    qwenLocal: {
+      precision: 1,
+      recall: 0.31,
+      found: 30,
+      extra: 9,
+      latency: 7.2,
+    },
   },
   /** The model Rekindle uses by default (highlighted in the table). */
   defaultModel: "currentDefault",
@@ -196,7 +220,13 @@ export const rekindleEval = {
   connections: number;
   models: Record<
     ModelId,
-    { precision: number; found: number; extra: number; latency: number }
+    {
+      precision: number;
+      recall: number;
+      found: number;
+      extra: number;
+      latency: number;
+    }
   >;
   defaultModel: ModelId;
 };

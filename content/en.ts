@@ -241,11 +241,16 @@ export const en = {
   evaluation: {
     summary: "How I measured it: model comparison",
     title: "Which model finds the connections?",
+    definitions:
+      "Precision: of the pairs it calls “actionable”, how many really are. Recall (sensitivity): of the pairs that really are actionable, how many it finds.",
     caption:
-      "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23). Gemini and the thinking-on run use the prompt of 2026-10-19; the local Qwen run uses the prompt from before 2026-10-21 and was not repeated. Without chunking and with the verdict first, the same default found 42 connections with 19 extra. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
+      "{pairs} article × project pairs labeled by hand, {connections} of them real connections. What counts as a connection is partly subjective, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
     columns: {
       model: "Model",
+      precisionTerm: "Precision",
       precision: "Right when it says “actionable”",
+      recallTerm: "Recall (sensitivity)",
+      recall: "“Actionable” pairs it finds",
       found: "Connections found",
       latency: "Median latency",
     },

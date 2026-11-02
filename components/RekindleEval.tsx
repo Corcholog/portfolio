@@ -20,15 +20,28 @@ export function RekindleEval({ locale, content }: Props) {
     maximumFractionDigits: 1,
   });
   const { pairs, connections } = rekindleEval;
+  const { columns } = content;
+  const precisionLabel = `${columns.precisionTerm}: ${columns.precision}`;
+  const recallLabel = `${columns.recallTerm}: ${columns.recall}`;
   const headers = [
-    content.columns.model,
-    content.columns.precision,
-    content.columns.found,
-    content.columns.latency,
+    { label: columns.model },
+    {
+      label: precisionLabel,
+      term: columns.precisionTerm,
+      hint: columns.precision,
+    },
+    { label: recallLabel, term: columns.recallTerm, hint: columns.recall },
+    { label: columns.found },
+    { label: columns.latency },
   ];
 
   return (
-    <details className="border-line border-t px-6 pt-2 pb-6 sm:px-9 sm:pb-9">
+    <details
+      id="rekindle-eval"
+      // Reopened by the scroll-restore script after a language change.
+      suppressHydrationWarning
+      className="border-line border-t px-6 pt-2 pb-6 sm:px-9 sm:pb-9"
+    >
       <summary className="text-accent flex min-h-11 cursor-pointer items-center text-sm font-medium underline-offset-4 hover:underline">
         {content.summary}
       </summary>
@@ -46,14 +59,21 @@ export function RekindleEval({ locale, content }: Props) {
               role="row"
               className="border-line-strong bg-band text-muted font-mono text-xs sm:table-row sm:border-b"
             >
-              {headers.map((header) => (
+              {headers.map(({ label, term, hint }) => (
                 <th
-                  key={header}
+                  key={label}
                   role="columnheader"
                   scope="col"
                   className="px-4 py-3 font-medium sm:table-cell"
                 >
-                  {header}
+                  {term ? (
+                    <>
+                      <span className="text-ink block">{term}</span>
+                      <span className="font-normal">{hint}</span>
+                    </>
+                  ) : (
+                    label
+                  )}
                 </th>
               ))}
             </tr>
@@ -81,13 +101,14 @@ export function RekindleEval({ locale, content }: Props) {
                     <br />
                     <span className="text-muted text-xs">{model.note}</span>
                   </th>
-                  <td
-                    role="cell"
-                    data-label={content.columns.precision}
-                    className={cell}
-                  >
+                  <td role="cell" data-label={precisionLabel} className={cell}>
                     <span className="font-mono">
                       {percent.format(data.precision * 100)}%
+                    </span>
+                  </td>
+                  <td role="cell" data-label={recallLabel} className={cell}>
+                    <span className="font-mono">
+                      {percent.format(data.recall * 100)}%
                     </span>
                   </td>
                   <td
@@ -116,6 +137,9 @@ export function RekindleEval({ locale, content }: Props) {
           </tbody>
         </table>
       </div>
+      <p className="text-muted mt-3 text-sm leading-relaxed">
+        {content.definitions}
+      </p>
       <p className="text-muted mt-3 text-sm leading-relaxed">
         {fillTemplate(content.caption, { pairs, connections })}
       </p>
