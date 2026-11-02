@@ -10,12 +10,14 @@ type Props = {
   id: ProjectId;
   project: ProjectContent;
   ui: Content["ui"];
+  /** Extra content below the card body, e.g. a collapsible evaluation. */
+  children?: React.ReactNode;
 };
 
 const linkClass =
   "border-line-strong hover:bg-chip hover:border-ink active:bg-chip inline-flex min-h-11 items-center gap-1 rounded-full border px-5 text-sm font-medium motion-safe:transition motion-safe:active:scale-[0.98]";
 
-export function ProjectCard({ id, project, ui }: Props) {
+export function ProjectCard({ id, project, ui, children }: Props) {
   const facts = projectFacts[id];
   const demo = visible(facts.demo);
   const repo = visible(facts.repo);
@@ -160,6 +162,7 @@ export function ProjectCard({ id, project, ui }: Props) {
           )}
         </div>
       </div>
+      {children}
     </article>
   );
 }

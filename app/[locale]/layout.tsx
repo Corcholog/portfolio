@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { InlineScript } from "@/components/InlineScript";
@@ -65,6 +66,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <body className="bg-bg text-ink font-sans antialiased">
         {children}
         <InlineScript html={scrollRestoreScript} />
+        <Analytics />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import type { ProjectId, TimelineId } from "./shared";
+import type { ModelId, ProjectId, TimelineId } from "./shared";
 
 /**
  * Shape of the site copy. Both `content/es.ts` and `content/en.ts` must satisfy
@@ -116,6 +116,22 @@ export type Content = {
       /** Says the screenshot uses made-up data. */
       imageCaption: string;
     };
+  };
+  /** Model comparison shown inside the Rekindle card. */
+  evaluation: {
+    summary: string;
+    title: string;
+    /** Placeholders: `{pairs}`, `{connections}`. */
+    caption: string;
+    columns: {
+      model: string;
+      precision: string;
+      found: string;
+      latency: string;
+    };
+    /** Placeholders: `{found}`, `{total}`, `{extra}`. */
+    found: string;
+    models: Record<ModelId, { name: string; note: string }>;
   };
   education: {
     title: string;

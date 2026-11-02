@@ -38,7 +38,8 @@ export const es = {
     close: "Cerrar",
   },
   hero: {
-    location: "Necochea, Argentina · Disponible para trabajo remoto",
+    location:
+      "Necochea, Argentina · Busco mi primer rol como AI Engineer o Full-Stack Developer, remoto",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
@@ -51,9 +52,9 @@ export const es = {
       problem:
         "La liga interuniversitaria de League of Legends (RedUNCI) no tenía un sitio para seguir resultados, estadísticas y el estado del torneo.",
       bullets: [
-        "Desarrollado durante mi pasantía en UNLP Esports, dentro de la Diplomatura en Deportes Electrónicos de la UNLP, en comunicación con UNLP Esports durante todo el desarrollo.",
         "Tablas, fixtures, playoffs, perfiles detallados de equipos y jugadores, y estadísticas por partida, jugador, campeón y universidad, a disposición de la organización y de los jugadores.",
         "La API de Riot para desarrollo ya no entrega estadísticas de partidas personalizadas, así que las extraigo parseando directamente los archivos de replay .rofl, con estadísticas como las de sitios profesionales (por ejemplo gol.gg) para que los jugadores analicen su juego.",
+        "Un panel de administración con login de Supabase Auth para subir replays de a uno o en lote; las estadísticas viven en un registro donde un ranking nuevo es una sola función; los tests de base de datos corren sobre PGlite, sin Docker ni Supabase.",
         "En producción en Vercel, con Supabase y Row-Level Security.",
       ],
       resultLabel: "Alcance",
@@ -88,7 +89,7 @@ export const es = {
         "Detectar caídas en tiempo real a partir de video, sin sensores en el cuerpo.",
       bullets: [
         "Investigación hecha junto a un compañero, dirigida por una investigadora del CONICET.",
-        "Estudio comparativo de estimadores de pose humana y arquitecturas de Deep Learning (CNN-LSTM, TCN-Transformer, Transformer).",
+        "Estudio comparativo de 4 estimadores de pose humana (AlphaPose, OpenPose, MediaPipe, YOLOv8-pose) y arquitecturas de Deep Learning (CNN-LSTM, TCN-Transformer, Transformer) sobre 4 datasets públicos (unos 1.600 videos).",
         "Pipelines automatizados de experimentación y benchmarking computacional.",
       ],
       resultLabel: "Hallazgo",
@@ -108,7 +109,7 @@ export const es = {
       "En la secundaria pensaba estudiar psicología, hasta que en 5º año conocí la programación. No tenía computadora, así que mi primer programa lo escribí en Java desde el celular: un diálogo que, según tu fecha de nacimiento, te decía si eras mayor de edad.",
       "En 2021 entré a Ingeniería de Sistemas en la UNICEN y elegí dedicarme de lleno a la carrera. Para la tesis quise hacer algo más que una web: con un compañero, y dirigidos por una investigadora del CONICET, realizamos una evaluación comparativa de detección automática de caídas con estimación de pose y redes neuronales/transformers. Fue un desafío y aprendí muchísimo. Me recibí en junio de 2026.",
       "Mi formación no terminó ahí. En 2025 me dieron una beca para realizar una Certificación avanzada en FullStack en el ITBA. En 2026 realicé la Diplomatura en deportes electrónicos en la UNLP.",
-      "Los juegos nunca se fueron. Jugando la Liga Interuniversitaria de Deportes Electrónicos (LIDE) vi que no había un sitio para seguir resultados y estadísticas, así que lo construí: LIDE 2 terminó siendo la plataforma oficial. Hoy estoy traduciendo al español una novela visual japonesa de PS2 con un pipeline de agentes de IA.",
+      "Los juegos nunca se fueron. Jugando la Liga Interuniversitaria de Deportes Electrónicos (LIDE) vi que no había un sitio para seguir resultados y estadísticas, así que durante mi pasantía en UNLP Esports lo construí: LIDE 2, la plataforma oficial de la liga. Hoy estoy traduciendo al español una novela visual japonesa de PS2 con un pipeline de agentes de IA.",
     ],
   },
   timeline: {
@@ -163,9 +164,9 @@ export const es = {
         "Yo presentando la tesis junto a una pantalla proyectada con una tabla comparativa de enfoques y variantes; parte del público se ve de espaldas.",
     },
     lide2: {
-      when: "Agosto 2026",
+      when: "Julio 2026",
       title: "LIDE 2",
-      line: "Construyo el sitio del torneo, que se vuelve oficial.",
+      line: "Pasantía en UNLP Esports: construyo el sitio oficial del torneo.",
       photoAlt: null,
     },
     esports: {
@@ -193,7 +194,7 @@ export const es = {
       ],
       progress: "{done} de {total} entradas ({percent}) al {date}",
       reviewerMetric:
-        "En 52 lotes revisados (11.285 líneas), el revisor modificó el 6,5% de las líneas (4,0% en el último guion), sobre todo por naturalidad y fidelidad.",
+        "Al 2 de noviembre: en 68 lotes revisados (15.905 líneas), el revisor modificó el 7,6% de las líneas (10,3% en el último guion, que se redactó en parte con otro modelo), sobre todo por naturalidad y fidelidad.",
       pipeline: {
         title: "Cómo se traduce un lote",
         scout: {
@@ -237,6 +238,37 @@ export const es = {
       imageAlt:
         "El panel de Flux en modo oscuro con datos de demostración: saldo real, neto del mes, próximo cuello de botella, un gráfico de flujo de caja a 90 días y los ingresos y pagos de los próximos 15 días.",
       imageCaption: "Panel de Flux con datos de demostración",
+    },
+  },
+  evaluation: {
+    summary: "Cómo lo medí: comparación de modelos",
+    title: "¿Qué modelo encuentra las conexiones?",
+    caption:
+      "{pairs} pares artículo × proyecto etiquetados a mano; marqué {connections} como conexiones. La primera fila es el modelo por defecto actual, que razona antes de dar el veredicto (2026-10-23). Gemini y la corrida con thinking usan el prompt del 2026-10-19; la de Qwen local usa el prompt anterior al texto estructurado (2026-10-21) y no se repitió. Sin chunking y con el veredicto primero, el mismo modelo por defecto encontró 42 conexiones con 19 de más. Qué cuenta como conexión es en parte subjetivo: algunas de las extra son forzadas y otras son vínculos que se me habían pasado, y ajusté 7 etiquetas tras leer las respuestas de un modelo. Un solo etiquetador y un dataset chico, así que las diferencias chicas son ruido.",
+    columns: {
+      model: "Modelo",
+      precision: "Acierta cuando dice «accionable»",
+      found: "Conexiones encontradas",
+      latency: "Latencia mediana",
+    },
+    found: "{found} de {total} (+{extra} extra)",
+    models: {
+      currentDefault: {
+        name: "DeepSeek Flash",
+        note: "por defecto hoy, razona antes del veredicto (2026-10-23)",
+      },
+      deepseekThinking: {
+        name: "DeepSeek Flash",
+        note: "con thinking, prompt del 2026-10-19",
+      },
+      geminiFlashLite: {
+        name: "Gemini 3.1 Flash Lite",
+        note: "en la nube, prompt del 2026-10-19",
+      },
+      qwenLocal: {
+        name: "Qwen 2.5 7B",
+        note: "corre en tu máquina, prompt anterior al 2026-10-21",
+      },
     },
   },
   education: {

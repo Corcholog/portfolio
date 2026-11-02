@@ -37,7 +37,8 @@ export const en = {
     close: "Close",
   },
   hero: {
-    location: "Necochea, Argentina · Open to remote work",
+    location:
+      "Necochea, Argentina · Looking for my first role as an AI Engineer or Full-Stack Developer, remote",
     github: "GitHub",
     linkedin: "LinkedIn",
     email: "Email",
@@ -50,9 +51,9 @@ export const en = {
       problem:
         "The inter-university League of Legends league (RedUNCI) had no site to follow results, statistics and the state of the tournament.",
       bullets: [
-        "Built during my internship at UNLP Esports, within the UNLP Diploma in Esports, in communication with UNLP Esports throughout the development.",
         "Standings, fixtures, playoffs, detailed team and player profiles, and statistics per match, player, champion and university, available to the organisers and the players.",
         "Riot's development API no longer provides custom-match statistics, so I extract them by parsing the .rofl replay files directly, with statistics like those on professional sites (e.g. gol.gg) for players to analyse their play.",
+        "An admin area behind Supabase Auth to upload replays one by one or in bulk; statistics live in a registry where a new ranking is a single function; the database tests run on PGlite, with no Docker or Supabase needed.",
         "In production on Vercel, with Supabase and Row-Level Security.",
       ],
       resultLabel: "Scope",
@@ -87,7 +88,7 @@ export const en = {
         "Detecting falls in real time from video, without body-worn sensors.",
       bullets: [
         "Research done together with a classmate, supervised by a CONICET researcher.",
-        "Comparative study of human pose estimators and Deep Learning architectures (CNN-LSTM, TCN-Transformer, Transformer).",
+        "Comparative study of 4 human pose estimators (AlphaPose, OpenPose, MediaPipe, YOLOv8-pose) and Deep Learning architectures (CNN-LSTM, TCN-Transformer, Transformer) over 4 public datasets (about 1,600 videos).",
         "Automated experimentation and computational benchmarking pipelines.",
       ],
       resultLabel: "Finding",
@@ -107,7 +108,7 @@ export const en = {
       "In high school I planned to study psychology, until in my final year I discovered programming. I didn't have a computer, so I wrote my first program in Java on my phone: a dialogue that told you whether you were an adult based on your date of birth.",
       "In 2021 I started Systems Engineering at UNICEN and chose to focus fully on my degree. For my thesis I wanted to do more than a website: with a classmate, and supervised by a CONICET researcher, we ran a comparative evaluation of automatic fall detection with pose estimation and neural networks/transformers. It was a challenge and I learned a lot. I graduated in June 2026.",
       "My education didn't stop there. In 2025 I received a scholarship to complete an Advanced Full-Stack Certification at ITBA. In 2026 I completed the Diploma in Esports at UNLP.",
-      "Games never went away. Playing the Inter-University Esports League (LIDE), I noticed there was no site to follow results and statistics, so I built one: LIDE 2 became the official platform. Today I'm translating a Japanese PS2 visual novel into Spanish with a pipeline of AI agents.",
+      "Games never went away. Playing the Inter-University Esports League (LIDE), I noticed there was no site to follow results and statistics, so during my internship at UNLP Esports I built one: LIDE 2, the league's official platform. Today I'm translating a Japanese PS2 visual novel into Spanish with a pipeline of AI agents.",
     ],
   },
   timeline: {
@@ -162,9 +163,9 @@ export const en = {
         "Me presenting my thesis next to a projected slide with a comparison table of approaches and variants; part of the audience is seen from behind.",
     },
     lide2: {
-      when: "August 2026",
+      when: "July 2026",
       title: "LIDE 2",
-      line: "I build the tournament site; it becomes official.",
+      line: "Internship at UNLP Esports: I build the tournament's official site.",
       photoAlt: null,
     },
     esports: {
@@ -192,7 +193,7 @@ export const en = {
       ],
       progress: "{done} of {total} entries ({percent}) as of {date}",
       reviewerMetric:
-        "Over 52 reviewed batches (11,285 lines), the reviewer changed 6.5% of lines (4.0% on the latest script), mostly for naturalness and fidelity.",
+        "As of 2 Nov: over 68 reviewed batches (15,905 lines), the reviewer changed 7.6% of lines (10.3% on the latest script, which was drafted partly by a different model), mostly for naturalness and fidelity.",
       pipeline: {
         title: "How a batch gets translated",
         scout: {
@@ -235,6 +236,37 @@ export const en = {
       imageAlt:
         "The Flux dashboard in dark mode with demo data: real balance, net this month, next bottleneck, a 90-day cash-flow chart and the next 15 days of income and payments.",
       imageCaption: "Flux dashboard with demo data",
+    },
+  },
+  evaluation: {
+    summary: "How I measured it: model comparison",
+    title: "Which model finds the connections?",
+    caption:
+      "{pairs} article × project pairs, labeled by hand; I marked {connections} of them as connections. The first row is the current default model, which reasons before its verdict (2026-10-23). Gemini and the thinking-on run use the prompt of 2026-10-19; the local Qwen run uses the prompt from before 2026-10-21 and was not repeated. Without chunking and with the verdict first, the same default found 42 connections with 19 extra. What counts as a connection is partly subjective: some of the extra ones are forced, others are links I had missed, and I revised 7 labels after reading one model's answers. One labeler and a small dataset, so small gaps are noise.",
+    columns: {
+      model: "Model",
+      precision: "Right when it says “actionable”",
+      found: "Connections found",
+      latency: "Median latency",
+    },
+    found: "{found} of {total} (+{extra} extra)",
+    models: {
+      currentDefault: {
+        name: "DeepSeek Flash",
+        note: "default now, reasons before the verdict (2026-10-23)",
+      },
+      deepseekThinking: {
+        name: "DeepSeek Flash",
+        note: "thinking on, prompt of 2026-10-19",
+      },
+      geminiFlashLite: {
+        name: "Gemini 3.1 Flash Lite",
+        note: "cloud, prompt of 2026-10-19",
+      },
+      qwenLocal: {
+        name: "Qwen 2.5 7B",
+        note: "runs on your machine, prompt before 2026-10-21",
+      },
     },
   },
   education: {

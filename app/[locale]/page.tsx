@@ -4,6 +4,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { Hero } from "@/components/Hero";
 import { NowSection } from "@/components/NowSection";
 import { ProjectCard } from "@/components/ProjectCard";
+import { RekindleEval } from "@/components/RekindleEval";
 import { Section } from "@/components/Section";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -56,7 +57,11 @@ export default async function HomePage({ params }: PageProps) {
                 id={id}
                 project={content.projects[id]}
                 ui={ui}
-              />
+              >
+                {id === "rekindle" && (
+                  <RekindleEval locale={locale} content={content.evaluation} />
+                )}
+              </ProjectCard>
             ))}
           </div>
         </Section>
